@@ -1,0 +1,42 @@
+.head {
+  background-color: #f8f8f8;
+}
+.logo {
+  display: block;
+  width: 0.72222222rem;
+  height: 0.72222222rem;
+  margin-top: 0.32407407rem;
+  background: url('../img/logo.png') 0.47222222rem 0;
+  background-repeat: no-repeat;
+  -webkit-background-size: 0.72222222rem 0.72222222rem;
+  background-size: 0.72222222rem;
+  padding-left: 0.47222222rem;
+}
+.logo a {
+  text-indent: -999999px;
+  overflow: hidden;
+  display: block;
+  height: 100%;
+}
+.head-right li {
+  width: 1.67592593rem;
+  text-align: center;
+  float: left;
+}
+.head-right li a {
+  display: inline-block;
+  vertical-align: top;
+  color: #a19ca0;
+  font-size: 0.44444444rem;
+  line-height: 1.15740741rem;
+}
+.head-right ul {
+  padding-top: 0.07407407rem;
+}
+.head-right .search-logo a {
+  display: block;
+  text-indent: -99999px;
+  overflow: hidden;
+  background: url('../img/search.jpg') no-repeat 0.49074074rem 0.32407407rem;
+  background-size: 0.5rem;
+}

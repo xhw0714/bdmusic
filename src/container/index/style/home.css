@@ -1,0 +1,42 @@
+.home-content {
+  background-color: #f7f7f7;
+}
+.home-today {
+  background-color: #fff;
+}
+.home-today-title {
+  font-size: 0.51851852rem;
+  line-height: 1.86111111rem;
+  text-indent: 0.49074074rem;
+  color: #000;
+}
+.home-today-list {
+  padding-left: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+.home-today-item {
+  float: left;
+  margin-right: 0.33333333rem;
+  margin-bottom: 0.50925926rem;
+  width: 2.77777778rem;
+}
+.home-today-item-pic {
+  position: relative;
+}
+.home-today-item-pic img {
+  width: 2.77777778rem;
+}
+.home-today-item-pic .home-today-item-play {
+  position: absolute;
+  width: 0.77777778rem;
+  height: 0.77777778rem;
+  right: 0.11111111rem;
+  bottom: 0.11111111rem;
+  background: url('../img/play.png') no-repeat;
+  background-size: 0.77777778rem 0.77777778rem;
+}
+.home-today-item-songname {
+  font-size: 0.31481481rem;
+  line-height: 0.65740741rem;
+  color: #000;
+}
