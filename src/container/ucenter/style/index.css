@@ -1,0 +1,52 @@
+.mine .m-head {
+  padding: 0.25rem 0.47222222rem 0.38888889rem;
+  background-color: #f8f8f8;
+}
+.mine .m-head img {
+  width: 1.55555556rem;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 0.77777778rem;
+}
+.mine .m-head span {
+  display: inline-block;
+  vertical-align: top;
+}
+.mine .m-head .use-name {
+  margin: 0 0 0 0.30555556rem;
+  font-size: 0.40740741rem;
+  line-height: 1.55555556rem;
+}
+.mine .m-head .die {
+  font-size: 0.40740741rem;
+  line-height: 1.55555556rem;
+}
+.mine .m-head .died {
+  display: none;
+}
+.mine .m-content {
+  padding: 0 0.47222222rem;
+  background-color: #fff;
+}
+.mine .m-content ul {
+  border-bottom: 3px solid #f1f1f1;
+}
+.mine .m-content ul li {
+  width: 2.25925926rem;
+  text-align: center;
+}
+.mine .m-content ul li span {
+  display: block;
+  width: 2.25925926rem;
+  font-size: 0.44444444rem;
+  line-height: 0.64814815rem;
+  height: 1.06481481rem;
+}
+.mine .m-content ul li .active {
+  border-bottom: 3px solid #00a8ff;
+}
+.mine .m-content .tip {
+  font-size: 0.33333333rem;
+  padding: 2.26851852rem 0 3.7037037rem;
+  text-align: center;
+}

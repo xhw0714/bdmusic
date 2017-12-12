@@ -115,6 +115,7 @@
 }
 .home-content .song-top-list .song-top-item .song-info .singer {
   font-size: 0.2962963rem;
+  padding: 0;
   line-height: 0.33333333rem;
 }
 .home-content .song-top-list .song-top-item .play {
