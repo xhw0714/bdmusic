@@ -7,8 +7,8 @@
 }
 .home-today-title{
     font-size:56/@rem;
-    line-height: 201/@rem;
-    text-indent: 53/@rem;
+    line-height: 180/@rem;
+    padding-left: 53/@rem;
     color: #000;
 }
 .home-today-list{
@@ -41,4 +41,113 @@
     font-size: 34/@rem;
     line-height: 71/@rem;
     color: #000;
+}
+.home-today-title .more{
+    font-size: 43/@rem;
+    line-height: 66/@rem;
+    width: auto;
+    margin: 60/@rem 53/@rem 0 0;
+}
+.home-content{
+    .song-top{
+        height: 99/@rem;
+        margin: 0 52/@rem;
+        border-bottom: 3px solid #f1f1f1;
+        // overflow: hidden;
+        .song-top-item{
+            float: left;
+            text-align: center;
+            width: 320/@rem;
+            font-size: 44/@rem;
+            border-right: 3/@rem solid #f1f1f1;
+            &:last-child{
+                border-right:none;
+            }
+        }
+        .active{
+            color: #299DE7;
+            position: relative;
+            &:before{
+                content:'';
+                display: block;
+                z-index: 2;
+                position: absolute;
+                width: 30/@rem;
+                height: 30/@rem;
+                border: 3/@rem solid #f1f1f1;
+                border-right: none;
+                border-bottom: none;
+                left: 136/@rem;
+                top: 80/@rem;
+                background-color: #fff;
+                transform: rotate(45deg)
+            }
+        }
+    }
+    .song-top-list{
+        margin: 0 52/@rem;
+        .song-top-item{
+            height: 170/@rem;
+            padding-top: 36/@rem;
+            border-bottom: 3px solid #f1f1f1;
+            .song-pic{
+                position: relative;
+                img{
+                    display: block;
+                    width: 132/@rem;
+                }
+                .level{
+                    position: absolute;
+                    font-size: 40/@rem;
+                    line-height: 60/@rem;
+                    color: #fff;
+                    bottom: 0;
+                    right: 10/@rem;
+                }
+            }
+            .song-info{
+                width: 660/@rem;
+                span{
+                    display: block;
+                }
+                .song-name{
+                    font-size: 44/@rem;
+                    line-height: 80/@rem;
+                }
+                .singer{
+                    font-size: 32/@rem;
+                    line-height: 36/@rem;
+                }
+            }
+            .play{
+                margin: 48/@rem 28/@rem 0;
+                width: 38/@rem;
+                height: 38/@rem;
+            }
+            .active{
+                background: url('./../img/play.gif') no-repeat;
+                background-size: 38/@rem;
+            }
+            .down{
+                margin-top: 40/@rem;
+                display: block;
+                width: 48/@rem;
+                height: 48/@rem;
+                background: url('./../img/download.png') no-repeat;
+                background-size: 48/@rem 48/@rem ;
+            }
+        }
+    }
+    .find{
+        height: 125/@rem;
+        padding-top: 55/@rem;
+        text-align: center;
+        .find-top{
+            display: inline-block;
+            vertical-align: top;
+            margin: 0 auto;
+            font-size: 34/@rem;
+            line-height: 70/@rem;
+        }
+    }
 }

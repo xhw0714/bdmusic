@@ -6,8 +6,8 @@
 }
 .home-today-title {
   font-size: 0.51851852rem;
-  line-height: 1.86111111rem;
-  text-indent: 0.49074074rem;
+  line-height: 1.66666667rem;
+  padding-left: 0.49074074rem;
   color: #000;
 }
 .home-today-list {
@@ -39,4 +39,110 @@
   font-size: 0.31481481rem;
   line-height: 0.65740741rem;
   color: #000;
+}
+.home-today-title .more {
+  font-size: 0.39814815rem;
+  line-height: 0.61111111rem;
+  width: auto;
+  margin: 0.55555556rem 0.49074074rem 0 0;
+}
+.home-content .song-top {
+  height: 0.91666667rem;
+  margin: 0 0.48148148rem;
+  border-bottom: 3px solid #f1f1f1;
+}
+.home-content .song-top .song-top-item {
+  float: left;
+  text-align: center;
+  width: 2.96296296rem;
+  font-size: 0.40740741rem;
+  border-right: 0.02777778rem solid #f1f1f1;
+}
+.home-content .song-top .song-top-item:last-child {
+  border-right: none;
+}
+.home-content .song-top .active {
+  color: #299DE7;
+  position: relative;
+}
+.home-content .song-top .active:before {
+  content: '';
+  display: block;
+  z-index: 2;
+  position: absolute;
+  width: 0.27777778rem;
+  height: 0.27777778rem;
+  border: 0.02777778rem solid #f1f1f1;
+  border-right: none;
+  border-bottom: none;
+  left: 1.25925926rem;
+  top: 0.74074074rem;
+  background-color: #fff;
+  transform: rotate(45deg);
+}
+.home-content .song-top-list {
+  margin: 0 0.48148148rem;
+}
+.home-content .song-top-list .song-top-item {
+  height: 1.57407407rem;
+  padding-top: 0.33333333rem;
+  border-bottom: 3px solid #f1f1f1;
+}
+.home-content .song-top-list .song-top-item .song-pic {
+  position: relative;
+}
+.home-content .song-top-list .song-top-item .song-pic img {
+  display: block;
+  width: 1.22222222rem;
+}
+.home-content .song-top-list .song-top-item .song-pic .level {
+  position: absolute;
+  font-size: 0.37037037rem;
+  line-height: 0.55555556rem;
+  color: #fff;
+  bottom: 0;
+  right: 0.09259259rem;
+}
+.home-content .song-top-list .song-top-item .song-info {
+  width: 6.11111111rem;
+}
+.home-content .song-top-list .song-top-item .song-info span {
+  display: block;
+}
+.home-content .song-top-list .song-top-item .song-info .song-name {
+  font-size: 0.40740741rem;
+  line-height: 0.74074074rem;
+}
+.home-content .song-top-list .song-top-item .song-info .singer {
+  font-size: 0.2962963rem;
+  line-height: 0.33333333rem;
+}
+.home-content .song-top-list .song-top-item .play {
+  margin: 0.44444444rem 0.25925926rem 0;
+  width: 0.35185185rem;
+  height: 0.35185185rem;
+}
+.home-content .song-top-list .song-top-item .active {
+  background: url('../img/play.gif') no-repeat;
+  background-size: 0.35185185rem;
+}
+.home-content .song-top-list .song-top-item .down {
+  margin-top: 0.37037037rem;
+  display: block;
+  width: 0.44444444rem;
+  height: 0.44444444rem;
+  background: url('../img/download.png') no-repeat;
+  background-size: 0.44444444rem 0.44444444rem;
+}
+.home-content .find {
+  height: 1.15740741rem;
+  padding-top: 0.50925926rem;
+  text-align: center;
+}
+.home-content .find .find-top {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 auto;
+  font-size: 0.31481481rem;
+  line-height: 0.64814815rem;
 }
