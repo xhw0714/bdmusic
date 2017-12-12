@@ -1,0 +1,42 @@
+.top-page {
+  padding: 0 0.47222222rem;
+}
+.top-page .item {
+  padding-top: 0.51851852rem;
+  height: 3.30555556rem;
+  border-bottom: 3px solid #f1f1f1;
+}
+.top-page .item .pic {
+  position: relative;
+}
+.top-page .item .pic img {
+  width: 2.66666667rem;
+}
+.top-page .item .pic span {
+  position: absolute;
+  width: 0.85185185rem;
+  height: 0.85185185rem;
+  background: url('../../../common/img/play.png') no-repeat;
+  background-size: 0.85185185rem;
+  bottom: 0.15740741rem;
+  right: 0.15740741rem;
+}
+.top-page .item .song-box {
+  padding-top: 0.12037037rem;
+}
+.top-page .item .song-box .song-item {
+  font-size: 0.42592593rem;
+  line-height: 0.83333333rem;
+  color: #000;
+}
+.top-page .item .song-box .song-item span {
+  display: inline-block;
+  vertical-align: top;
+}
+.top-page .item .song-box .song-item .num {
+  font-style: italic;
+  width: 1rem;
+  text-align: center;
+  color: #fa6644;
+  font-weight: 700;
+}
