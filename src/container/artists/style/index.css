@@ -1,0 +1,42 @@
+.singer {
+  padding: 0 0.38888889rem;
+}
+.singer .check-box {
+  height: 1.21296296rem;
+  border-bottom: 3px solid #f1f1f1;
+  margin-right: -0.77777778rem;
+}
+.singer .check-box .check-item {
+  float: left;
+  width: 0.88888889rem;
+  margin-right: 0.77777778rem;
+  margin-top: 0.25925926rem;
+  text-align: center;
+  font-size: 0.40740741rem;
+  line-height: 0.59259259rem;
+}
+.singer .check-box .active {
+  color: #00a8ff;
+  border-bottom: 3px solid #00a8ff;
+}
+.singer .singers .singers-title {
+  font-size: 0.55555556rem;
+  font-weight: normal;
+  line-height: 1.2962963rem;
+}
+.singer .singers li {
+  border-bottom: 3px solid #f1f1f1;
+  padding: 0.19444444rem 0;
+}
+.singer .singers li img {
+  float: left;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.75rem;
+}
+.singer .singers li span {
+  float: left;
+  font-size: 0.40740741rem;
+  margin-left: 0.44444444rem;
+  line-height: 1.5rem;
+}
