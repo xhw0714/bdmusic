@@ -14,7 +14,8 @@ import PlaySmall from './../component/playSmall/playSmall';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      // havaPlay 留出底部的padding值
+      <div className="App havaPlay">
           <Header/>
           <div>
               <Route path="/" exact component={Index}></Route>
