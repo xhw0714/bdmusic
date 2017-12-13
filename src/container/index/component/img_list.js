@@ -4,7 +4,7 @@ export default class ImgList extends React.Component {
 
     render() {
         if(this.props.mes){
-            var {pic_big,album_title} = this.props.mes;
+            var {pic_big,title} = this.props.mes;
         }
         return (
             <li className="home-today-item">
@@ -12,7 +12,7 @@ export default class ImgList extends React.Component {
                     <img src={pic_big} alt=""/>
                     <span className="home-today-item-play"></span>
                 </div>
-                <div className="home-today-item-songname">{album_title}</div>
+                <div className="home-today-item-songname">{title}</div>
             </li>
         )
     }

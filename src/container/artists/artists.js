@@ -21,7 +21,7 @@ export default class arrtists extends Component{
                     <li className="check-item">组合</li>
                 </ul>
                 <div className="singers">
-                    <h3 className="singers-title">热门</h3>
+                    {/* <h3 className="singers-title">热门</h3> */}
                     <ul>
                         <li className="clearfix">
                             <img src={require('./img/246669444 (1).jpg')} alt=""/>
