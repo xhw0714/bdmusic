@@ -12,6 +12,7 @@ import PlaySmall from './../component/playSmall/playSmall';
 
 
 class App extends Component {
+  
   render() {
     return (
       // havaPlay 留出底部的padding值

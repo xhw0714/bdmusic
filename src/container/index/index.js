@@ -1,5 +1,6 @@
 import React,{Component} from "react";
 import ImgList from "./component/img_list"
+import IndexList from "./component/index_list"
 import './style/home.css';
 
 export default class arrtists extends Component{
@@ -7,27 +8,40 @@ export default class arrtists extends Component{
         super();
         this.state={
             todaySong:[],
-            newSong:[]
+            newSong:[],
+            IndexListSong:[],
+            index:0
         }
     }
     componentWillMount(){
-        fetch("http://localhost/bdmusic/php/list.php",{
-            method:"GET",
-            type:"1",
-            size:20,
-            offset:0
+        fetch("http://localhost/bdmusic/php/list.php?type=1&size=9&offset=0",{
+            method:"GET"
         }).then(response=>{
-            return response.json()
+            return response.json();
         }).then(data=>{
-            
             this.setState({
                 todaySong:data.song_list.slice(0,6),
                 newSong:data.song_list.slice(6,9)             
             })
+        });
+        this.changeIndexAndData(2,0)
+    }
+
+     changeIndexAndData = (type,index)=>{
+        fetch("http://localhost/bdmusic/php/list.php?type="+type+"&size=6&offset=0",{
+            method:"GET"
+        }).then(response=>{
+            return response.json();
+        }).then(data=>{
+            this.setState({
+                IndexListSong:data.song_list,
+                index
+            })
         })
     }
+
     render(){
-    let {todaySong,newSong} = this.state;
+    let {todaySong,newSong,IndexListSong,index} = this.state;
     
     let todaySongList = todaySong.map(e=>{
         return <ImgList mes={e} key={e.song_id}/>
@@ -35,6 +49,11 @@ export default class arrtists extends Component{
     let newSongList = newSong.map(e=>{
         return <ImgList mes={e} key={e.song_id}/>
     })
+    let IndexListSongCate = IndexListSong.map((e,index)=>{
+        return <IndexList mes={e} key={e.song_id} index={index}/>
+    })
+
+    let classActive = "song-top-item active";
         return (
             <section className="home-content">
 
@@ -71,11 +90,12 @@ export default class arrtists extends Component{
                         </span>
                     </h2>
                     <div className="song-top">
-                        <span className="song-top-item active">热歌榜</span>
-                        <span className="song-top-item">新歌榜</span>
-                        <span className="song-top-item">King榜</span>
+                        <span className={index===0?classActive:'song-top-item'} onClick={e=>this.changeIndexAndData(1,0)}>热歌榜</span>
+                        <span className={index===1?classActive:'song-top-item'} onClick={e=>this.changeIndexAndData(16,1)}>流行榜</span>
+                        <span className={index===2?classActive:'song-top-item'} onClick={e=>this.changeIndexAndData(21,2)}>King榜</span>
                     </div>
                     <ul className="song-top-list">
+                    {IndexListSongCate}
                         {/* <li className="song-top-item">
                             <div className="song-pic fl">
                                 <img src={require('./img/test.jpg')} alt=""/>
