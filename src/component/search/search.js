@@ -1,7 +1,6 @@
 import React,{Component} from "react";
 import './style/index.css';
 
-import PlaySmall from './../playSmall/playSmall';
 
 export default class search extends Component{
     render(){
@@ -52,7 +51,7 @@ export default class search extends Component{
                     </ul>
                 </div>
 
-                <PlaySmall/>
+                
             </div>
         )
     }

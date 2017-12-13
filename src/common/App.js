@@ -8,7 +8,7 @@ import Search from "../component/search/search";
 import Songlist from "../container/songlists/songlists";
 import Ucenter from "../container/ucenter/ucenter"
 import Listcate from "../container/listcate/listcate";
-
+import PlaySmall from './../component/playSmall/playSmall';
 
 
 class App extends Component {
@@ -24,6 +24,7 @@ class App extends Component {
               <Route path="/ucenter"  component={Ucenter}></Route>
               <Route path="/listcate"  component={Listcate}></Route>
           </div>
+          <PlaySmall/>
       </div>
     );
   }

@@ -1,15 +1,62 @@
 .music-play-small {
   width: 10rem;
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.99);
 }
 .music-play-small .bar-tool {
   height: 3px;
   background-color: #00a8ff;
 }
+.music-play-small .song-pic {
+  margin: 0.25rem 0.26851852rem 0.28703704rem 0.44444444rem;
+}
 .music-play-small .song-pic img {
   width: 1.38888889rem;
   height: 1.38888889rem;
+}
+.music-play-small .song-info {
+  padding-top: 0.40740741rem;
+}
+.music-play-small .song-info .song-name {
+  display: block;
+  font-size: 0.40740741rem;
+  font-weight: 600;
+  line-height: 0.64814815rem;
+  color: #000;
+}
+.music-play-small .song-info .singer {
+  display: block;
+  font-size: 0.2962963rem;
+  line-height: 0.53703704rem;
+  padding: 0;
+}
+.music-play-small .play-btn {
+  width: 1.06481481rem;
+  height: 1.06481481rem;
+  border: 0.02777778rem solid #000000;
+  border-radius: 0.5462963rem;
+  margin: 0.39814815rem 0.55555556rem 0 0;
+  background: no-repeat center center;
+  background-size: 0.31481481rem;
+}
+.music-play-small .play {
+  background-image: url('../img/play.png');
+}
+.music-play-small .stop {
+  background-image: url('../img/stop.png');
+}
+.music-play-small .next-btn {
+  width: 0.73148148rem;
+  height: 0.90740741rem;
+  margin: 0.5rem 0.33333333rem 0 0;
+  background: url('../img/next.png') no-repeat center center;
+}
+.music-play-small .list-btn {
+  width: 0.88888889rem;
+  height: 0.90740741rem;
+  margin: 0.5rem 0.34259259rem 0 0;
+  background: url('../img/list.png') no-repeat center center;
 }

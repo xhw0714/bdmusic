@@ -1,18 +1,63 @@
 @rem:108rem;
 .music-play-small{
     width: 10rem;
-    position: absolute;
+    position: fixed;
     left: 0;
     bottom: 0;
-    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.99);
     .bar-tool{
         height: 3px;
         background-color: #00a8ff;
     }
     .song-pic{
+        margin: 27/@rem 29/@rem 31/@rem 48/@rem;
         img{
             width: 150/@rem;
             height:150/@rem;
         }
+    }
+    .song-info{
+        padding-top: 44/@rem;
+        .song-name{
+            display: block;
+            font-size: 44/@rem;
+            font-weight: 600;
+            line-height: 70/@rem;
+            color:#000;
+        }
+        .singer{
+            display: block;
+            font-size: 32/@rem;
+            line-height: 58/@rem;
+            padding: 0;
+        }
+    }
+    .play-btn{
+        width: 115/@rem;
+        height: 115/@rem;
+        border: 3/@rem solid #000;
+        border-radius: 59/@rem;
+        margin: 43/@rem 60/@rem 0 0;
+        background: no-repeat center center;
+        background-size: 34/@rem;
+    }
+    .play{
+        background-image: url('./../img/play.png');
+    }
+    .stop{
+        background-image: url('./../img/stop.png');
+    }
+    .next-btn{
+        width: 79/@rem;
+        height: 98/@rem;
+        margin: 54/@rem 36/@rem 0 0 ;
+        background: url('./../img/next.png') no-repeat center center;
+    }
+    .list-btn{
+        width: 96/@rem;
+        height: 98/@rem;
+        margin: 54/@rem 37/@rem 0 0 ;
+        background: url('./../img/list.png') no-repeat center center;
     }
 }
