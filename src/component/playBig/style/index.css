@@ -1,0 +1,160 @@
+.big-play {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: #f8f8f8;
+}
+.big-play .b-p-head .back {
+  width: 0.59259259rem;
+  height: 0.51851852rem;
+  background: url('../img/backhome.jpg') no-repeat;
+  background-size: 0.59259259rem;
+  margin: 0.51851852rem 0 0 0.48148148rem;
+}
+.big-play .b-p-head .find {
+  width: 0.60185185rem;
+  height: 0.60185185rem;
+  background: url('../../../common/img/find.png') no-repeat;
+  background-size: 0.60185185rem;
+  margin: 0.47222222rem 0.48148148rem 0 0;
+}
+.big-play .b-p-head .song-all {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 5.92592593rem;
+  text-align: center;
+}
+.big-play .b-p-head .song-all span {
+  display: block;
+}
+.big-play .b-p-head .song-all .song-name {
+  font-size: 0.55555556rem;
+  line-height: 0.7962963rem;
+  margin-top: 0.37037037rem;
+  font-weight: 600;
+}
+.big-play .b-p-head .song-all .singer {
+  padding: 0 !important;
+  font-size: 0.33333333rem;
+  line-height: 0.59259259rem;
+}
+.big-play .b-p-head .song-all .song-text {
+  position: relative;
+  padding: 0.27777778rem 0;
+  height: 7.77777778rem;
+  overflow: hidden;
+}
+.big-play .b-p-head .song-all .song-text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.55555556rem;
+  background: linear-gradient(180deg, #f8f8f8, rgba(255, 255, 255, 0));
+}
+.big-play .b-p-head .song-all .song-text li {
+  font-size: 0.37037037rem;
+  line-height: 0.61111111rem;
+  color: #9c9c9c;
+}
+.big-play .btn-like-and-down {
+  margin-top: 9.14814815rem;
+  padding: 0.74074074rem 0;
+}
+.big-play .btn-like-and-down .like {
+  width: 0.59259259rem;
+  height: 0.51851852rem;
+  background: url('../img/love.jpg') no-repeat;
+  background-size: 0.59259259rem;
+  margin-left: 0.48148148rem;
+}
+.big-play .btn-like-and-down .down {
+  width: 0.59259259rem;
+  height: 0.58333333rem;
+  background: url('../../../common/img/download.png') no-repeat;
+  background-size: 0.59259259rem;
+  margin-right: 0.48148148rem;
+}
+.big-play .big-bar-tool {
+  padding: 0.74074074rem 0 0.27777778rem 0.2962963rem;
+}
+.big-play .big-bar-tool .time {
+  text-align: right;
+  font-size: 0.33333333rem;
+  line-height: 0.57407407rem;
+}
+.big-play .big-bar-tool .guidao {
+  width: 8.16666667rem;
+  height: 0.02777778rem;
+  background-color: #e5e5e5;
+  margin-right: 0.61111111rem;
+  margin-top: 0.26851852rem;
+  position: relative;
+}
+.big-play .big-bar-tool .small-bar {
+  position: absolute;
+  width: 0.27777778rem;
+  height: 0.27777778rem;
+  border-radius: 0.13888889rem;
+  top: -0.125rem;
+  left: 0;
+  background-color: #333333;
+}
+.big-play .btns {
+  margin-top: 0.62962963rem;
+  height: 1.85185185rem;
+}
+.big-play .btns .play-style {
+  width: 1.05555556rem;
+  height: 0.84259259rem;
+  background: url('../img/style.jpg') no-repeat center center;
+  background-size: 0.7037037rem;
+  margin: 0.38888889rem 1rem 0 0.27777778rem;
+}
+.big-play .btns .type-afs {
+  background-image: url('../img/style-asdj.jpg');
+}
+.big-play .btns .type-one {
+  background-image: url('../img/style-one.jpg');
+}
+.big-play .btns .pre {
+  width: 0.96296296rem;
+  height: 0.89814815rem;
+  background: url('../img/pre.jpg') no-repeat center center;
+  background-size: 0.61111111rem;
+  margin: 0.36111111rem 0.87962963rem 0 0;
+}
+.big-play .btns .play-btn {
+  width: 1.62037037rem;
+  height: 1.62037037rem;
+  border: 0.02777778rem solid #000000;
+  border-radius: 0.82407407rem;
+  background: no-repeat center center;
+  background-size: 0.57407407rem 0.64814815rem;
+}
+.big-play .btns .play {
+  background-image: url('../../playSmall/img/play.png');
+}
+.big-play .btns .stop {
+  background-image: url('../../playSmall/img/stop.png');
+}
+.big-play .btns .next {
+  width: 0.96296296rem;
+  height: 0.89814815rem;
+  background: url('../../playSmall/img/next.png') no-repeat center center;
+  background-size: 0.61111111rem;
+  margin: 0.36111111rem 1.06481481rem 0 0.89814815rem;
+}
+.big-play .btns .list {
+  width: 0.94444444rem;
+  height: 0.84259259rem;
+  background: url('../../playSmall/img/list.png') no-repeat center center;
+  background-size: 0.59259259rem;
+  margin: 0.36111111rem 0 0 0;
+}
