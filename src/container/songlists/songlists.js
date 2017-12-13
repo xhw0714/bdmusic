@@ -1,9 +1,34 @@
 import React,{Component} from "react";
 
 import './style/index.css';
+import Imglist from "./component/Imglist"
 
 export default class songlists extends Component{
+    constructor(){
+        super();
+        this.state={
+            list:[],
+            newTag:"流行"
+        }
+    }
+    componentWillMount(){
+        this.getSongList(1)
+    }
+    getSongList = (type,tag) => {
+        fetch("http://localhost/bdmusic/php/list.php?type="+type+"&size=6&offset=0").then(res=>{
+            return res.json()
+        }).then(data=>{
+            this.setState({
+                list:data.song_list,
+                newTag:tag
+            })
+        })
+    }
     render(){
+        let {list,newTag} = this.state;
+        let Songlist = list.map(e=>{
+            return <Imglist mes={e} key={e.song_id}/>
+        })
         return (
             <div className="songlist">
                 <div className="songlist-c">
@@ -17,16 +42,16 @@ export default class songlists extends Component{
                         <li className="small-list fr">
                             <ul className="fl">
                                 <li className="small fl">
-                                    <span  className="text">流行</span>
+                                    <span  className="text" onClick={e=>this.getSongList(12,"爵士")}>爵士</span>
                                 </li>
                                 <li  className="small fl">
-                                    <span  className="text">流行</span>
+                                    <span  className="text" onClick={e=>this.getSongList(11,"摇滚")}>摇滚</span>
                                 </li>
                                 <li  className="small fl">
-                                    <span  className="text">流行</span>
+                                    <span  className="text" onClick={e=>this.getSongList(23,"情歌")}>情歌</span>
                                 </li>
                                 <li  className="small fl">
-                                    <span  className="text">流行</span>
+                                    <span  className="text" onClick={e=>this.getSongList(22,"老歌")}>老歌</span>
                                 </li>
                             </ul>
                         </li>
@@ -34,10 +59,11 @@ export default class songlists extends Component{
                 </div>
                 <div className="songlist-box">
                     <h2 className="title">
-                        流行音乐
+                        {newTag}音乐
                     </h2>
                     <ul className="songlist-list clearfix">
-                        <li className="fl">
+                    {Songlist}
+                        {/* <li className="fl">
                             <div className="item-pic">
                                 <img src={require('./img/pic.jpg')} alt=""/>
                                 <div className="listen-num">
@@ -80,7 +106,7 @@ export default class songlists extends Component{
                             </div>
                             <div className="item-info">华语·流行·么么</div>
                             <div className="item-name">男人心事让音乐慢慢诉说</div>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </div>

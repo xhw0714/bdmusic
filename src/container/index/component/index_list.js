@@ -2,7 +2,7 @@ import React from "react";
 
 export default class IndexList extends React.Component{
     render(){
-        let {album_title,artist_name ,pic_big} = this.props.mes;
+        let {title,artist_name ,pic_big} = this.props.mes;
         let {index} = this.props;
         return (
             <li className="song-top-item">
@@ -14,7 +14,7 @@ export default class IndexList extends React.Component{
 
                 </div>
                 <div className="song-info fl">
-                    <span className="song-name">{album_title}</span>
+                    <span className="song-name">{title}</span>
                     <span className="singer">{artist_name}</span>
                 </div>
                 <div className="down fl">
