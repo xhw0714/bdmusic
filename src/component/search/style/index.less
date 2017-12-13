@@ -1,5 +1,19 @@
 @rem:108rem;
 .search{
+    .show{
+        
+    }
+    .hidd{
+        .search-content{
+            display: none !important;
+        }
+        input{
+            border: none !important;
+        }
+        .cancel{
+            display: none !important;
+        }
+    }
     .search-input{
         margin: 18/@rem 15/@rem 36/@rem;
         height: 108/@rem;
@@ -64,5 +78,35 @@
         background-color: #2497e5;
         color: #fff;
         text-align: center;
+    }
+
+    .searched-list{
+        li{
+            height: 162/@rem;
+            border-top: 3px solid #c3c3c3;
+            border-bottom: 3px solid #c3c3c3;
+            margin-bottom: -3px;
+            .song-name{
+                display: block;
+                padding: 24/@rem 0 0 32/@rem;
+                font-size: 44/@rem;
+                line-height: 80/@rem;
+                color: #000;
+            }
+            .singer{
+                display: block;
+                font-size: 32/@rem;
+                line-height: 48/@rem;
+                padding-left: 32/@rem;
+                color: #9d9d9d;
+            }
+            .down{
+                width: 48/@rem;
+                height: 48/@rem;
+                background: url('./../../../common/img/download.png') no-repeat;
+                background-size: 48/@rem;
+                margin: 55/@rem 30/@rem 0 0;
+            }
+        }
     }
 }

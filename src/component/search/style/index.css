@@ -1,3 +1,12 @@
+.search .hidd .search-content {
+  display: none !important;
+}
+.search .hidd input {
+  border: none !important;
+}
+.search .hidd .cancel {
+  display: none !important;
+}
 .search .search-input {
   margin: 0.16666667rem 0.13888889rem 0.33333333rem;
   height: 1rem;
@@ -62,4 +71,31 @@
   background-color: #2497e5;
   color: #fff;
   text-align: center;
+}
+.search .searched-list li {
+  height: 1.5rem;
+  border-top: 3px solid #c3c3c3;
+  border-bottom: 3px solid #c3c3c3;
+  margin-bottom: -3px;
+}
+.search .searched-list li .song-name {
+  display: block;
+  padding: 0.22222222rem 0 0 0.2962963rem;
+  font-size: 0.40740741rem;
+  line-height: 0.74074074rem;
+  color: #000;
+}
+.search .searched-list li .singer {
+  display: block;
+  font-size: 0.2962963rem;
+  line-height: 0.44444444rem;
+  padding-left: 0.2962963rem;
+  color: #9d9d9d;
+}
+.search .searched-list li .down {
+  width: 0.44444444rem;
+  height: 0.44444444rem;
+  background: url('../../../common/img/download.png') no-repeat;
+  background-size: 0.44444444rem;
+  margin: 0.50925926rem 0.27777778rem 0 0;
 }
