@@ -1,5 +1,6 @@
 <?php
 //参数：songid = 877578 //歌曲id  num = 5//返回条目数量
+header('Access-Control-Allow-Origin:*');
 $songid=isset($_GET['songid'])?$_GET['songid']:'';
 $num=isset($_GET['num'])?$_GET['num']:'';
 $method = "GET";

@@ -1,5 +1,6 @@
 <?php
 //参数：query = '' //搜索关键字
+header('Access-Control-Allow-Origin:*');
 $query=isset($_GET['query'])?$_GET['query']:'';
 $method = "GET";
 $url = "http://tingapi.ting.baidu.com/v1/restserver/ting?method=baidu.ting.search.catalogSug&query=".$query."";

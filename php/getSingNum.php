@@ -2,6 +2,7 @@
 // 参数：	tinguid = 877578//歌手ting id
 
 // limits = 6//返回条目数量
+header('Access-Control-Allow-Origin:*');
 $tinguid=isset($_GET['tinguid'])?$_GET['tinguid']:'';
 $limits=isset($_GET['limits'])?$_GET['limits']:'6';
 $method = "GET";

@@ -1,59 +1,49 @@
 import React,{Component} from "react";
-
+import ImgList from "./component/img_list"
 import './style/home.css';
 
 export default class arrtists extends Component{
+    constructor(){
+        super();
+        this.state={
+            todaySong:[],
+            newSong:[]
+        }
+    }
+    componentWillMount(){
+        fetch("http://localhost/bdmusic/php/list.php",{
+            method:"GET",
+            type:"1",
+            size:20,
+            offset:0
+        }).then(response=>{
+            return response.json()
+        }).then(data=>{
+            
+            this.setState({
+                todaySong:data.song_list.slice(0,6),
+                newSong:data.song_list.slice(6,9)             
+            })
+        })
+    }
     render(){
+    let {todaySong,newSong} = this.state;
+    
+    let todaySongList = todaySong.map(e=>{
+        return <ImgList mes={e} key={e.song_id}/>
+    })
+    let newSongList = newSong.map(e=>{
+        return <ImgList mes={e} key={e.song_id}/>
+    })
         return (
             <section className="home-content">
 
-            {/* 今日推荐 */}
+                {/* 今日推荐 */}
 
                 <div className="home-today">
                     <h2 className="home-today-title">今日推荐</h2>
                     <ul className="home-today-list clearfix">
-                        <li className="home-today-item">
-                            <div className="home-today-item-pic">
-                                <img src={require('./img/1.jpg')} alt=""/>
-                                <span className="home-today-item-play"></span>
-                            </div>
-                            <div className="home-today-item-songname">小酒窝</div>
-                        </li>
-                        <li className="home-today-item">
-                            <div className="home-today-item-pic">
-                                <img src={require('./img/1.jpg')} alt=""/>
-                                <span className="home-today-item-play"></span>
-                            </div>
-                            <div className="home-today-item-songname">小酒窝</div>
-                        </li>
-                        <li className="home-today-item">
-                            <div className="home-today-item-pic">
-                                <img src={require('./img/1.jpg')} alt=""/>
-                                <span className="home-today-item-play"></span>
-                            </div>
-                            <div className="home-today-item-songname">小酒窝</div>
-                        </li>
-                        <li className="home-today-item">
-                            <div className="home-today-item-pic">
-                                <img src={require('./img/1.jpg')} alt=""/>
-                                <span className="home-today-item-play"></span>
-                            </div>
-                            <div className="home-today-item-songname">小酒窝</div>
-                        </li>
-                        <li className="home-today-item">
-                            <div className="home-today-item-pic">
-                                <img src={require('./img/1.jpg')} alt=""/>
-                                <span className="home-today-item-play"></span>
-                            </div>
-                            <div className="home-today-item-songname">小酒窝</div>
-                        </li>
-                        <li className="home-today-item">
-                            <div className="home-today-item-pic">
-                                <img src={require('./img/1.jpg')} alt=""/>
-                                <span className="home-today-item-play"></span>
-                            </div>
-                            <div className="home-today-item-songname">小酒窝</div>
-                        </li>
+                        {todaySongList}
                     </ul>
                 </div>
 
@@ -67,27 +57,7 @@ export default class arrtists extends Component{
                         </span>
                     </h2>
                     <ul className="home-today-list clearfix">
-                        <li className="home-today-item">
-                            <div className="home-today-item-pic">
-                                <img src={require('./img/1.jpg')} alt=""/>
-                                <span className="home-today-item-play"></span>
-                            </div>
-                            <div className="home-today-item-songname">小酒窝</div>
-                        </li>
-                        <li className="home-today-item">
-                            <div className="home-today-item-pic">
-                                <img src={require('./img/1.jpg')} alt=""/>
-                                <span className="home-today-item-play"></span>
-                            </div>
-                            <div className="home-today-item-songname">小酒窝</div>
-                        </li>
-                        <li className="home-today-item">
-                            <div className="home-today-item-pic">
-                                <img src={require('./img/1.jpg')} alt=""/>
-                                <span className="home-today-item-play"></span>
-                            </div>
-                            <div className="home-today-item-songname">小酒窝</div>
-                        </li>                   
+                        {newSongList}
                     </ul>
                 </div>
 
@@ -106,13 +76,12 @@ export default class arrtists extends Component{
                         <span className="song-top-item">King榜</span>
                     </div>
                     <ul className="song-top-list">
-                        <li className="song-top-item">
+                        {/* <li className="song-top-item">
                             <div className="song-pic fl">
                                 <img src={require('./img/test.jpg')} alt=""/>
                                 <span className="level">01</span>
                             </div>
                             <div className="play active fl">
-
                             </div>
                             <div className="song-info fl">
                                 <span className="song-name">成都</span>
@@ -135,7 +104,7 @@ export default class arrtists extends Component{
                             </div>
                             <div className="down fl">
                             </div>
-                        </li>
+                        </li> */}
                     </ul>
                     <div className="find">
                         <span className="find-top">

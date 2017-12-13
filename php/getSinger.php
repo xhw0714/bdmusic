@@ -1,5 +1,6 @@
 <?php
 //参数：	tinguid = 877578 //歌手ting id
+header('Access-Control-Allow-Origin:*');
 $tinguid=isset($_GET['tinguid'])?$_GET['tinguid']:'';
 $method = "GET";
 $url = "http://tingapi.ting.baidu.com/v1/restserver/ting?method=baidu.ting.artist.getInfo&tinguid=".$tinguid."";
