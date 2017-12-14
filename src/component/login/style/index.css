@@ -1,0 +1,82 @@
+.login-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f9f9f9;
+  z-index: 100;
+}
+.login-box .login-head {
+  height: 1.25925926rem;
+  background-color: #fff;
+  position: relative;
+}
+.login-box .login-head span {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 0.46296296rem;
+  line-height: 1.25925926rem;
+}
+.login-box .login-head .cancel {
+  font-size: 0.74074074rem;
+  font-weight: 400;
+  width: 1.24074074rem;
+  text-align: center;
+}
+.login-box .login-head .login {
+  position: absolute;
+  width: 2.03703704rem;
+  left: 50%;
+  top: 0;
+  margin-left: -1.01851852rem;
+  text-align: center;
+  font-weight: 600;
+}
+.login-box .login-head .register {
+  width: 1.66666667rem;
+  text-align: center;
+}
+.login-box .space {
+  height: 4.16666667rem;
+}
+.login-box .info-inputs input {
+  display: block;
+  height: 1.25rem;
+  border: none;
+  border-top: 3px solid #c3c3c3;
+  border-bottom: 3px solid #c3c3c3;
+  width: 100%;
+  vertical-align: top;
+  margin-bottom: -3px;
+  line-height: 1.25rem;
+  font-size: 0.37037037rem;
+  text-indent: 0.71296296rem;
+}
+.login-box .login-btn {
+  width: 8.61111111rem;
+  height: 1.25rem;
+  margin: 0.69444444rem auto;
+  background-color: #f6d6d6;
+  border-radius: 0.25925926rem;
+  font-size: 0.55555556rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  line-height: 1.25rem;
+}
+.login-box .can-click {
+  background-color: #f15d5d;
+}
+.type-register .login {
+  display: none !important;
+}
+.type-register .register {
+  position: absolute;
+  width: 2.03703704rem;
+  left: 50%;
+  top: 0;
+  margin-left: -1.01851852rem;
+  text-align: center;
+  font-weight: 600;
+}

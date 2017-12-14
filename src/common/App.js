@@ -6,10 +6,11 @@ import Index from "../container/index/index";
 import Artists from "../container/artists/artists";
 import Search from "../component/search/search";
 import Songlist from "../container/songlists/songlists";
-import Ucenter from "../container/ucenter/ucenter"
+import Ucenter from "../container/ucenter/ucenter";
 import Listcate from "../container/listcate/listcate";
 import PlaySmall from './../component/playSmall/playSmall';
-
+import Login from './../component/login/login';
+import PlayBig from './../component/playBig/playBig';
 
 class App extends Component {
   
@@ -27,6 +28,8 @@ class App extends Component {
               <Route path="/listcate"  component={Listcate}></Route>
           </div>
           <PlaySmall/>
+          {/* <Login/> */}
+          {/* <PlayBig/> */}
       </div>
     );
   }

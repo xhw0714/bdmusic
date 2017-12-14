@@ -1,0 +1,165 @@
+@rem:108rem;
+
+.big-play{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background-color: #f8f8f8;
+    .b-p-head{
+        .back{
+            width:64/@rem;
+            height: 56/@rem;
+            background: url('./../img/backhome.jpg') no-repeat ;
+            background-size: 64/@rem;
+            margin: 56/@rem 0 0 52/@rem;
+        }
+        .find{
+            width:65/@rem;
+            height: 65/@rem;
+            background: url('./../../../common/img/find.png') no-repeat ;
+            background-size: 65/@rem;
+            margin: 51/@rem 52/@rem 0 0; 
+        }
+        .song-all{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 640/@rem;
+            text-align: center;
+            span{
+                display: block;
+            }
+            .song-name{
+                font-size: 60/@rem;
+                line-height: 86/@rem;
+                margin-top: 40/@rem;
+                font-weight: 600;
+            }
+            .singer{
+                padding: 0 !important;
+                font-size: 36/@rem;
+                line-height:64/@rem;
+            }
+            .song-text{
+                position: relative;
+                padding: 30/@rem 0;
+                height: 840/@rem;
+                overflow: hidden;
+                &::before{
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 60/@rem;
+                    background: linear-gradient(180deg,#f8f8f8,rgba(255,255,255,0)) 
+                }
+                li{
+                    font-size: 40/@rem;
+                    line-height: 66/@rem;
+                    color: #9c9c9c;
+                }
+            }
+        }
+    }
+    .btn-like-and-down{
+        margin-top: 988/@rem;
+        padding: 80/@rem 0;
+        .like{
+            width:64/@rem;
+            height: 56/@rem;
+            background: url('./../img/love.jpg') no-repeat ;
+            background-size: 64/@rem;
+            margin-left:52/@rem;
+        }
+        .down{
+            width:64/@rem;
+            height: 63/@rem;
+            background: url('./../../../common/img/download.png') no-repeat ;
+            background-size: 64/@rem;
+            margin-right: 52/@rem;
+        }
+    }
+    .big-bar-tool{
+        padding: 80/@rem 0 30/@rem 32/@rem;
+        .time{
+            text-align: right;
+            font-size: 36/@rem;
+            line-height: 62/@rem;
+        }
+        .guidao{
+            width: 882/@rem;
+            height: 3/@rem;
+            background-color: #e5e5e5;
+            margin-right: 66/@rem;
+            margin-top: 29/@rem;
+            position: relative;
+        }
+        .small-bar{
+            position: absolute;
+            width: 30/@rem;
+            height: 30/@rem;
+            border-radius: 15/@rem;
+            top: -13.5/@rem;
+            left: 0;
+            background-color: #333333;
+        }
+        
+    }
+    .btns{
+        margin-top: 68/@rem;
+        height: 200/@rem;
+        .play-style{
+            width: 114/@rem;
+            height: 91/@rem;
+            background: url('./../img/style.jpg') no-repeat center center;
+            background-size: 76/@rem;
+            margin: 42/@rem 108/@rem 0 30/@rem;
+        }
+        .type-afs{
+            background-image: url('./../img/style-asdj.jpg');
+        }
+        .type-one{
+            background-image: url('./../img/style-one.jpg');
+        }
+        .pre{
+            width: 104/@rem;
+            height: 97/@rem;
+            background: url('./../img/pre.jpg') no-repeat center center;
+            background-size: 66/@rem;
+            margin: 39/@rem 95/@rem 0 0;
+        }
+        .play-btn{
+            width: 175/@rem;
+            height: 175/@rem;
+            border: 3/@rem solid #000;
+            border-radius: 89/@rem;
+            background: no-repeat center center;
+            background-size: 62/@rem 70/@rem;
+        }
+        .play{
+            background-image: url('./../../playSmall/img/play.png');
+        }
+        .stop{
+            background-image: url('./../../playSmall/img/stop.png');
+        }
+        .next{
+            width: 104/@rem;
+            height: 97/@rem;
+            background: url('./../../playSmall/img/next.png') no-repeat center center;
+            background-size: 66/@rem;
+            margin: 39/@rem 115/@rem 0 97/@rem;
+        }
+        .list{
+            width: 102/@rem;
+            height: 91/@rem;
+            background: url('./../../playSmall/img/list.png') no-repeat center center;
+            background-size: 64/@rem;
+            margin: 39/@rem 0 0 0;
+        }
+    }
+}
