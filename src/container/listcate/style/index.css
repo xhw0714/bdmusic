@@ -7,11 +7,15 @@
   border-bottom: 3px solid #f1f1f1;
 }
 .top-page .item .pic {
+  width: 2.66666667rem;
+  height: 2.66666667rem;
+  overflow: hidden;
   position: relative;
 }
 .top-page .item .pic img {
-  width: 2.66666667rem;
   height: 2.66666667rem;
+  width: 4.25925926rem;
+  margin-left: -0.7962963rem;
 }
 .top-page .item .pic span {
   position: absolute;
