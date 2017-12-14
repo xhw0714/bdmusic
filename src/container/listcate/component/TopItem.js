@@ -14,7 +14,7 @@ export default class extends Component{
 
         let pic = "";
         if(data.billboard){
-            pic = data.billboard.pic_s192
+            pic = data.billboard.pic_s210
         }
         let showList = list.map((e,i)=>{
             return <ShowList ele={e} index={i}  key={e.song_id}/>
