@@ -17,6 +17,7 @@ export default class listcate extends Component{
         }).then(response=>{
             return response.json()
         }).then(data=>{
+            console.log(data)
             let arr = this.state.songList;
             arr[index] = data
             this.setState({
