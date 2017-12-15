@@ -10,7 +10,7 @@ import Ucenter from "../container/ucenter/ucenter";
 import Listcate from "../container/listcate/listcate";
 import PlaySmall from './../component/playSmall/playSmall';
 import Login from './../component/login/login';
-import PlayBig from './../component/playBig/playBig';
+// import PlayBig from './../component/playBig/playBig';
 import {connect} from "react-redux";
 import ReactPlayer from 'react-player';
 
@@ -19,35 +19,35 @@ class App extends Component {
     super();
     this.state={
       nowPlayIndex:0,
-      nowPlayLink:''
+      nowPlayLink:'',
+      isPlaying:true,
+      playingId:0
     }
   }
 
   playSong=(id)=>{
     let {playAudio} = this.refs;
+    console.log(playAudio)
+    let {playingId} = this.state;
+    if(playingId === id)return;
     fetch("http://localhost/bdmusic/php/songmes.php?songid="+id+"").then(res=>{
       return res.json();
     }).then(data=>{
-    //  let audioPlay = document.getElementById("playSongAudio")
-    //   this.setState({
-    //     nowPlayLink:data.bitrate.show_link
-    //   },()=>{
-    //     console.log(audio)
-    //     let {nowPlayLink} = this.state;
-    //     audio.src = nowPlayLink;
-    //     audio.play();
-    //   })
-      console.log(playAudio)
+        this.setState({
+          nowPlayLink:data.bitrate.file_link,
+          isPlaying:true,
+          playingId:id
+        })
     })
   }
 
 
   render() {
     let {playSong} = this;
-    let {nowPlayIndex,nowPlayLink} = this.state;
+    let {nowPlayLink,isPlaying} = this.state;
     let {playArr} = this.props;
-    if(playArr[0]){
-      playArr[0].id?playSong(playArr[0].id):'';
+    if(playArr.length>0){
+      playSong(playArr[0].id)
     }
     return (
       // havaPlay 留出底部的padding值
@@ -65,10 +65,9 @@ class App extends Component {
           <PlaySmall arr={playArr[0]} />
           {/* <Login/> */}
           {/* <PlayBig/> */}
-          {/* <audio src={nowPlayLink} source="true" autoPlay="autoplay" id="playSongAudio" ref="audio"></audio> */}
-          <ReactPlayer url='http://zhangmenshiting.baidu.com/data2/music/42783748/42783748.mp3?xcode=d081dd12e4dd102b38b319dd5c3c046e' ref="playAudio" playing={true} width={0} height={0}/>
+          <ReactPlayer url={nowPlayLink} playing={isPlaying} ref="playAudio" width={0} height={0}/>
       </div>
-    );
+    )
   }
 }
 
