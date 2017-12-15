@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import './style/index.css'
-import {Link } from 'react-router-dom';
+// import {Link } from 'react-router-dom';
 
 //<PlayBig/>
 export default class ucenter extends Component{

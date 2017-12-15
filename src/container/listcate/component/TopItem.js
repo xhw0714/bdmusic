@@ -8,7 +8,7 @@ export default class extends Component{
 
         let {data} = this.props;
        
-        data?data=data:data={};
+        data = data?data:{};
         
         let list = data.song_list || [];
 
