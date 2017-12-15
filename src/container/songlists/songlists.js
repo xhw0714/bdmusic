@@ -14,7 +14,7 @@ export default class songlists extends Component{
     componentWillMount(){
         this.getSongList(1)
     }
-    getSongList = (type,tag) => {
+    getSongList = (type,tag="流行") => {
         fetch("http://localhost/bdmusic/php/list.php?type="+type+"&size=6&offset=0").then(res=>{
             return res.json()
         }).then(data=>{
@@ -37,7 +37,7 @@ export default class songlists extends Component{
                     </h2>
                     <ul className="hot-list clearfix">
                         <li className="big fl">
-                            <span className="text">流行</span>
+                            <span className="text" onClick={e=>this.getSongList(1,"流行")}>流行</span>
                         </li>
                         <li className="small-list fr">
                             <ul className="fl">
