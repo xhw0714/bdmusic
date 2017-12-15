@@ -16,7 +16,7 @@ export default class Login extends Component{
         this.changeType = this.changeType.bind(this);
         this.enterHandle = this.enterHandle.bind(this);
     }
-
+    // 切换注册或者登录
     changeType(value){
         this.setState({
             type:value,
@@ -43,14 +43,20 @@ export default class Login extends Component{
                 data.forEach((e)=>{
                     if(this.state.useName===e.useName && this.state.passWord===e.passWord){
                         //登陆成功
-                        // alert('登陆成功');
-                        this.props.history.push('/ucenter'+'?use='+e.useName);
+                        let data =  {
+                            isLogin:true,
+                            useName:e.useName,
+                            passWord:e.passWord
+                        }
+
+                        localStorage.setItem('isLogin',JSON.stringify(data))
+                        this.props.history.push('/ucenter');
                         key = true;
                         return;
                     }
                 });
                 if(!key){
-                    alert('账号或者密码错误')
+                    alert('账号或者密码错误');
                 }
             }else{
                 let data = JSON.parse(localStorage.getItem('useAndPass')) || [];
