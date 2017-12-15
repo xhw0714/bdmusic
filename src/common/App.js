@@ -26,10 +26,11 @@ class App extends Component {
               <Route path="/songlists"  component={Songlist}></Route>
               <Route path="/ucenter"  component={Ucenter}></Route>
               <Route path="/listcate"  component={Listcate}></Route>
+              <Route path="/login"  component={Login}></Route>
           </div>
           <PlaySmall/>
           {/* <Login/> */}
-          {/* <PlayBig/> */}
+          
       </div>
     );
   }
