@@ -24,6 +24,8 @@ src //开发文件
 	--component //共用组件
 		--headNav //头部导航，附带样式
 		--playSmall //底部播放器
+		--playBig //全屏播放器
+		--login //登录注册页
 		--search //搜索页
 	--container //页面组件
 		--artists //歌手页面
@@ -31,6 +33,7 @@ src //开发文件
 		--listcate //排行版页面
 		--songlists //分类页面
 		--ucenter //用户页面
+		--toplist //榜单详情页
 	index.js //入口文件
 ```
 

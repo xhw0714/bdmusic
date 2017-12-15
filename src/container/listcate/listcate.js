@@ -10,13 +10,13 @@ export default class listcate extends Component{
             songList:[]
         }
     }
+    // 为了防止ajax响应的时间差问题 所以使用index强制设置每条数据在数组中的位置
     getSongList(type,index){
         fetch("http://localhost/bdmusic/php/list.php?type="+type+"&size=3&offset=0",{
             method:'GET'
         }).then(response=>{
             return response.json()
         }).then(data=>{
-            console.log(data)
             let arr = this.state.songList;
             arr[index] = data
             this.setState({

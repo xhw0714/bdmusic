@@ -69,11 +69,15 @@
   background-color: #f15d5d;
 }
 .type-register .login {
-  display: none !important;
+  font-weight: normal !important;
+  position: static !important;
+  float: right;
+  width: 1.66666667rem !important;
+  text-align: center;
 }
 .type-register .register {
   position: absolute;
-  width: 2.03703704rem;
+  width: 2.03703704rem !important;
   left: 50%;
   top: 0;
   margin-left: -1.01851852rem;
