@@ -12,6 +12,7 @@ import PlaySmall from './../component/playSmall/playSmall';
 import Login from './../component/login/login';
 import PlayBig from './../component/playBig/playBig';
 import {connect} from "react-redux";
+import ReactPlayer from 'react-player';
 
 class App extends Component {
   constructor(){
@@ -23,20 +24,20 @@ class App extends Component {
   }
 
   playSong=(id)=>{
-    let {audio} = this.refs;
+    let {playAudio} = this.refs;
     fetch("http://localhost/bdmusic/php/songmes.php?songid="+id+"").then(res=>{
       return res.json();
     }).then(data=>{
-     let audioPlay = document.getElementById("playSongAudio")
-      this.setState({
-        nowPlayLink:data.bitrate.show_link
-      },()=>{
-        console.log(audio)
-        let {nowPlayLink} = this.state;
-        audio.src = nowPlayLink;
-        audio.play();
-      })
-      
+    //  let audioPlay = document.getElementById("playSongAudio")
+    //   this.setState({
+    //     nowPlayLink:data.bitrate.show_link
+    //   },()=>{
+    //     console.log(audio)
+    //     let {nowPlayLink} = this.state;
+    //     audio.src = nowPlayLink;
+    //     audio.play();
+    //   })
+      console.log(playAudio)
     })
   }
 
@@ -45,8 +46,8 @@ class App extends Component {
     let {playSong} = this;
     let {nowPlayIndex,nowPlayLink} = this.state;
     let {playArr} = this.props;
-    if(nowPlayLink === ''){
-      playArr[nowPlayIndex]?playSong(playArr[nowPlayIndex].id):null;
+    if(playArr[0]){
+      playArr[0].id?playSong(playArr[0].id):'';
     }
     return (
       // havaPlay 留出底部的padding值
@@ -64,8 +65,8 @@ class App extends Component {
           <PlaySmall arr={playArr[0]} />
           {/* <Login/> */}
           {/* <PlayBig/> */}
-          <audio src={nowPlayLink} source="true" autoPlay="autoplay" id="playSongAudio" ref="audio"></audio>
-          
+          {/* <audio src={nowPlayLink} source="true" autoPlay="autoplay" id="playSongAudio" ref="audio"></audio> */}
+          <ReactPlayer url='http://zhangmenshiting.baidu.com/data2/music/42783748/42783748.mp3?xcode=d081dd12e4dd102b38b319dd5c3c046e' ref="playAudio" playing={true} width={0} height={0}/>
       </div>
     );
   }
