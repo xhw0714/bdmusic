@@ -2,6 +2,13 @@ import React,{Component} from 'react';
 import './style/index.css';
 
 export default class extends Component{
+    constructor(){
+        super();
+        this.state={
+            id:0
+        }
+    }
+    
     render(){
         return (
             <div className="music-play-small clearfix">
@@ -25,6 +32,7 @@ export default class extends Component{
                     <div className="next-btn fl"></div>
                     <span className="list-btn fl"></span>
                 </div>
+                
             </div>
         )
     }

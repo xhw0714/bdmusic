@@ -19,7 +19,7 @@ export default class arrtists extends Component{
         }).then(response=>{
             return response.json();
         }).then(data=>{
-            console.log(data)
+          
             this.setState({
                 todaySong:data.song_list.slice(0,6),
                 newSong:data.song_list.slice(6,9)             
