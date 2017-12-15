@@ -7,9 +7,9 @@ export default class ucenter extends Component{
     constructor(){
         super();
 
-        let data = this.getLocation() || {isLogin:false,useName:'点击登录'};
+        let data = this.getLocation();
 
-        this.state = data
+        this.state = data;
 
         this.getLocation = this.getLocation.bind(this);
         this.loginClickHandel = this.loginClickHandel.bind(this);
@@ -18,41 +18,23 @@ export default class ucenter extends Component{
     //登录的点击事件
     loginClickHandel(){
         if(!this.state.isLogin){
-            this.jumpRoute('/login')
+            this.jumpRoute('/login');
         };
     }
 
     //注销的点击事件
     dieClickHandel(){
+        localStorage.setItem('isLogin',JSON.stringify({
+            isLogin:false
+        }));
         this.setState({
-            isLogin:false,
+            isLogin:false
         })
     }
 
     getLocation(){
         //获取用户名
-        let query = window.location.search.slice(1).split('&');
-        query.forEach((e,i)=>{
-            query[i] = e.split('=');
-        })
-        let data = {};
-        query.forEach((e)=>{
-            data[e[0]] = decodeURI(e[1])
-            
-        })
-        let isLogin = false;
-        let useAndPass = JSON.parse(localStorage.getItem('useAndPass')) || [];
-        useAndPass.forEach((e)=>{
-            if(e.useName===data.use){
-                isLogin=true;
-            }
-        })
-        if(isLogin){
-            return {
-                isLogin:true,
-                useName:data.use
-            }
-        }
+        return JSON.parse(localStorage.getItem('isLogin')) || {isLogin:false};
     }
 
     jumpRoute(path){
