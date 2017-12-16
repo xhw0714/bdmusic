@@ -49,6 +49,7 @@ class App extends Component {
     if(playArr.length>0){
       playSong(playArr[0].id)
     }
+    console.log(nowPlayLink)
     return (
       // havaPlay 留出底部的padding值
       <div className="App havaPlay">
