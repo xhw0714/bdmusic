@@ -15,6 +15,8 @@
             background: url('./../img/backhome.jpg') no-repeat ;
             background-size: 64/@rem;
             margin: 56/@rem 0 0 52/@rem;
+            position: relative;
+            z-index: 100;
         }
         .find{
             width:65/@rem;
@@ -22,6 +24,8 @@
             background: url('./../../../common/img/find.png') no-repeat ;
             background-size: 65/@rem;
             margin: 51/@rem 52/@rem 0 0; 
+            position: relative;
+            z-index: 100;
         }
         .song-all{
             position: absolute;
@@ -44,24 +48,35 @@
                 font-size: 36/@rem;
                 line-height:64/@rem;
             }
-            .song-text{
-                position: relative;
-                padding: 30/@rem 0;
+            .song-div{
                 height: 840/@rem;
                 overflow: hidden;
-                &::before{
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    height: 60/@rem;
-                    background: linear-gradient(180deg,#f8f8f8,rgba(255,255,255,0)) 
-                }
-                li{
-                    font-size: 40/@rem;
-                    line-height: 66/@rem;
-                    color: #9c9c9c;
+                position: relative;
+                .song-text{
+                    position: relative;
+                    padding: 30/@rem 0;
+                    // height: 840/@rem;
+                    transition: 0.5s;
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        height: 60/@rem;
+                        background: linear-gradient(180deg,#f8f8f8,rgba(255,255,255,0)) 
+                    }
+                    li{
+                        font-size: 40/@rem;
+                        line-height: 66/@rem;
+                        color: #9c9c9c;
+                        transition: 0.5s;
+                    }
+                    li.on{
+                        color: #00a8ff;
+                        font-size: 50/@rem;
+                        margin:20px 0px
+                    }
                 }
             }
         }
@@ -75,6 +90,8 @@
             background: url('./../img/love.jpg') no-repeat ;
             background-size: 64/@rem;
             margin-left:52/@rem;
+            position: relative;
+            z-index: 100
         }
         .down{
             width:64/@rem;
@@ -82,6 +99,8 @@
             background: url('./../../../common/img/download.png') no-repeat ;
             background-size: 64/@rem;
             margin-right: 52/@rem;
+            position: relative;
+            z-index: 100
         }
     }
     .big-bar-tool{
