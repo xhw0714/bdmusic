@@ -1,6 +1,12 @@
 import React from "react";
 
 export default class ImgList extends React.Component{
+    constructor(){
+        super();
+        this.state={
+            num:Math.round(Math.random()*1000000)
+        }
+    }
     render(){
         if(this.props.mes){
             var {pic_big,artist_name,language,country} = this.props.mes;
@@ -10,7 +16,7 @@ export default class ImgList extends React.Component{
                 <div className="item-pic">
                     <img src={pic_big} alt=""/>
                     <div className="listen-num">
-                        {Math.round(Math.random()*1000000)}
+                        {this.state.num}
                     </div>
                     <div className="play-btn"></div>
                 </div>

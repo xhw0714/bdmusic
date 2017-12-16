@@ -13,6 +13,8 @@
   background: url('../img/backhome.jpg') no-repeat;
   background-size: 0.59259259rem;
   margin: 0.51851852rem 0 0 0.48148148rem;
+  position: relative;
+  z-index: 100;
 }
 .big-play .b-p-head .find {
   width: 0.60185185rem;
@@ -20,6 +22,8 @@
   background: url('../../../common/img/find.png') no-repeat;
   background-size: 0.60185185rem;
   margin: 0.47222222rem 0.48148148rem 0 0;
+  position: relative;
+  z-index: 100;
 }
 .big-play .b-p-head .song-all {
   position: absolute;
@@ -43,13 +47,17 @@
   font-size: 0.33333333rem;
   line-height: 0.59259259rem;
 }
-.big-play .b-p-head .song-all .song-text {
-  position: relative;
-  padding: 0.27777778rem 0;
+.big-play .b-p-head .song-all .song-div {
   height: 7.77777778rem;
   overflow: hidden;
+  position: relative;
 }
-.big-play .b-p-head .song-all .song-text::before {
+.big-play .b-p-head .song-all .song-div .song-text {
+  position: relative;
+  padding: 0.27777778rem 0;
+  transition: 0.5s;
+}
+.big-play .b-p-head .song-all .song-div .song-text::before {
   content: '';
   position: absolute;
   top: 0;
@@ -58,10 +66,16 @@
   height: 0.55555556rem;
   background: linear-gradient(180deg, #f8f8f8, rgba(255, 255, 255, 0));
 }
-.big-play .b-p-head .song-all .song-text li {
+.big-play .b-p-head .song-all .song-div .song-text li {
   font-size: 0.37037037rem;
   line-height: 0.61111111rem;
   color: #9c9c9c;
+  transition: 0.5s;
+}
+.big-play .b-p-head .song-all .song-div .song-text li.on {
+  color: #00a8ff;
+  font-size: 0.46296296rem;
+  margin: 20px 0px;
 }
 .big-play .btn-like-and-down {
   margin-top: 9.14814815rem;
@@ -73,6 +87,8 @@
   background: url('../img/love.jpg') no-repeat;
   background-size: 0.59259259rem;
   margin-left: 0.48148148rem;
+  position: relative;
+  z-index: 100;
 }
 .big-play .btn-like-and-down .down {
   width: 0.59259259rem;
@@ -80,6 +96,8 @@
   background: url('../../../common/img/download.png') no-repeat;
   background-size: 0.59259259rem;
   margin-right: 0.48148148rem;
+  position: relative;
+  z-index: 100;
 }
 .big-play .big-bar-tool {
   padding: 0.74074074rem 0 0.27777778rem 0.2962963rem;

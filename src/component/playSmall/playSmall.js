@@ -10,27 +10,31 @@ export default class extends Component{
     }
     
     render(){
+        let {progress,songMes,isplaying,setPlayOrPause,bigplayshowfn} = this.props;
         return (
-            <div className="music-play-small clearfix">
+            <div className="music-play-small clearfix" onClick={e=>bigplayshowfn()}>
                 <div 
                     className="bar-tool"
-                    style={{width:30}}
+                    style={{width:progress*100+'%'}}
                 ></div>
 
                 <div className="fl">
                     <span className="song-pic fl">
-                        <img src={require('./img/pic.png')} alt=""/>
+                        <img src={songMes.pic_big} alt=""/>
                     </span>
                     <span className="song-info fl">
-                        <span className="song-name">像风一样</span>
-                        <span className="singer">薛之谦</span>
+                        <span className="song-name">{songMes.title}</span>
+                        <span className="singer">{songMes.author}</span>
                     </span>
                 </div>
                 <div className="fr">
                         {/* 状态play 和 stop */}
-                    <div className="play-btn stop fl"></div>
+                    <div className={isplaying?"play-btn play fl":"play-btn stop fl"} onClick={e=>{
+                        e.stopPropagation();
+                        setPlayOrPause()
+                    }}></div>
                     <div className="next-btn fl"></div>
-                    <span className="list-btn fl"></span>
+                    {/* <span className="list-btn fl"></span> */}
                 </div>
                 
             </div>
