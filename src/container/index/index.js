@@ -12,7 +12,7 @@ export default class arrtists extends Component{
             newSong:[],
             IndexListSong:[],
             index:0,
-            typeMine:1
+            typeMine:0
         };
         // this.changeRoute = this.changeRoute.bind(this)
 

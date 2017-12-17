@@ -6,26 +6,19 @@ export default class extends Component{
     
     render(){
 
-        let {data} = this.props;
-       
-        data = data?data:{};
+        let {list,picLink,type_mine} = this.props.data;
         
-        let list = data.song_list || [];
 
-        let pic = "";
-        if(data.billboard){
-            pic = data.billboard.pic_s210
-        }
         let showList = list.map((e,i)=>{
-            return <ShowList ele={e} index={i}  key={e.song_id}/>
+            return <ShowList ele={e} index={i}  key={i}/>
         })
 
         return (
             <div className="item clearfix" onClick={()=>{
-                this.props.methods(data.type_mine)
+                this.props.methods(type_mine)
             }}>
                 <div className="pic fl">
-                    <img src={pic} alt=""/>
+                    <img src={picLink} alt=""/>
                     <span></span>
                 </div>
                 <ul className="song-box fl">
