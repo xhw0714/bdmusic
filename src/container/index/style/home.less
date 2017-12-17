@@ -84,61 +84,7 @@
             }
         }
     }
-    .song-top-list{
-        margin: 0 52/@rem;
-        .song-top-item{
-            height: 170/@rem;
-            padding-top: 36/@rem;
-            border-bottom: 3px solid #f1f1f1;
-            .song-pic{
-                position: relative;
-                img{
-                    display: block;
-                    width: 132/@rem;
-                }
-                .level{
-                    position: absolute;
-                    font-size: 40/@rem;
-                    line-height: 60/@rem;
-                    color: #fff;
-                    bottom: 0;
-                    right: 10/@rem;
-                }
-            }
-            .song-info{
-                width: 660/@rem;
-                span{
-                    display: block;
-                }
-                .song-name{
-                    font-size: 44/@rem;
-                    line-height: 80/@rem;
-                }
-                .singer{
-                    font-size: 32/@rem;
-                    padding: 0;
-                    line-height: 36/@rem;
-                }
-            }
-            .play{
-                margin: 48/@rem 28/@rem 0;
-                width: 38/@rem;
-                height: 38/@rem;
-            }
-            .active{
-                background: url('./../img/play.gif') no-repeat;
-                background-size: 38/@rem;
-            }
-            .down{
-                margin-top: 40/@rem;
-                display: block;
-                width: 48/@rem;
-                height: 48/@rem;
-                background: url('./../img/download.png') no-repeat;
-                background-size: 48/@rem 48/@rem ;
-            }
-        }
-    }
+    
     .find{
         height: 125/@rem;
         padding-top: 55/@rem;
@@ -149,6 +95,64 @@
             margin: 0 auto;
             font-size: 34/@rem;
             line-height: 70/@rem;
+        }
+    }
+}
+.song-top-list{
+    margin: 0 52/@rem;
+    .song-top-item{
+        height: 170/@rem;
+        padding-top: 36/@rem;
+        border-bottom: 3px solid #f1f1f1;
+        .song-pic{
+            position: relative;
+            img{
+                display: block;
+                width: 132/@rem;
+            }
+            .level{
+                position: absolute;
+                font-size: 40/@rem;
+                line-height: 60/@rem;
+                color: #fff;
+                bottom: 0;
+                right: 10/@rem;
+            }
+        }
+        .song-info{
+            width: 660/@rem;
+            span{
+                display: block;
+            }
+            .song-name{
+                font-size: 44/@rem;
+                line-height: 80/@rem;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+            .singer{
+                font-size: 32/@rem;
+                padding: 0;
+                line-height: 36/@rem;
+            }
+        }
+        .play{
+            margin: 48/@rem 28/@rem 0;
+            width: 38/@rem;
+            height: 38/@rem;
+        }
+        .active{
+            background: url('./../img/play.gif') no-repeat;
+            background-size: 38/@rem;
+        }
+        .down{
+            margin-top: 40/@rem;
+            display: block;
+            width: 48/@rem;
+            height: 48/@rem;
+            background: url('./../img/download.png') no-repeat;
+            background-size: 48/@rem 48/@rem ;
         }
     }
 }

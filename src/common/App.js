@@ -13,6 +13,7 @@ import Login from './../component/login/login';
 import PlayBig from './../component/playBig/playBig';
 import {connect} from "react-redux";
 import ReactPlayer from 'react-player';
+import TopList from './../container/toplist/topList';
 
 class App extends Component {
   constructor(){
@@ -39,6 +40,7 @@ class App extends Component {
     fetch("http://localhost/bdmusic/php/songmes.php?songid="+id+"").then(res=>{
       return res.json();
     }).then(data=>{
+      console.log(data)
       this.parseLyric(data.songinfo.lrclink)
         this.setState({
           nowPlayLink:"http://localhost/1.mp3", //data.bitrate.file_link
@@ -102,7 +104,6 @@ class App extends Component {
     if(playArr.length>0){
       playSong(playArr[0].id)
     }
-    console.log(nowPlayLink)
     return (
       // havaPlay 留出底部的padding值
       <div className={playingId!==0?"App havaPlay":'App'}>
@@ -115,6 +116,7 @@ class App extends Component {
               <Route path="/ucenter"  component={Ucenter}></Route>
               <Route path="/listcate"  component={Listcate}></Route>
               <Route path="/login"  component={Login}></Route>
+              <Route path="/toplist/:id?" component={TopList}></Route>
           </div>
           {playingId!==0?<PlaySmall bigplayshowfn={bigplayshowfn}  arr={playArr[0]} progress={progress} songMes={songMes} isplaying={isPlaying} setPlayOrPause={setPlayOrPause}/>:null}
           {bigPlayShow?<PlayBig bigplayshowfn={bigplayshowfn} isplaying={isPlaying} getCurrentTime={getCurrentTime} progress={progress} songMes={songMes} setPlayOrPause={setPlayOrPause} lrcArr={lrcArr} setSeekTo={setSeekTo}/>:null}

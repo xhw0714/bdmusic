@@ -10,8 +10,11 @@ export default class arrtists extends Component{
             todaySong:[],
             newSong:[],
             IndexListSong:[],
-            index:0
-        }
+            index:0,
+            typeMine:1
+        };
+        // this.changeRoute = this.changeRoute.bind(this)
+
     }
     componentWillMount(){
         fetch("http://localhost/bdmusic/php/list.php?type=1&size=9&offset=0",{
@@ -37,9 +40,14 @@ export default class arrtists extends Component{
         }).then(data=>{
             this.setState({
                 IndexListSong:data.song_list,
-                index
+                index,
+                typeMine:type
             })
         })
+    }
+
+    changeRoute(id){
+        this.props.history.push(`/toplist/${id}`);
     }
 
     render(){
@@ -129,7 +137,9 @@ export default class arrtists extends Component{
                         </li> */}
                     </ul>
                     <div className="find">
-                        <span className="find-top">
+                        <span className="find-top" onClick={()=>{
+                            this.changeRoute(this.state.typeMine);
+                        }}>
                             查看该榜单>
                         </span>
                     </div>

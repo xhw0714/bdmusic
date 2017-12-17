@@ -21,7 +21,9 @@ export default class extends Component{
         })
 
         return (
-            <div className="item clearfix">
+            <div className="item clearfix" onClick={()=>{
+                this.props.methods(data.type_mine)
+            }}>
                 <div className="pic fl">
                     <img src={pic} alt=""/>
                     <span></span>

@@ -8,7 +8,8 @@ export default class listcate extends Component{
         super();
         this.state = {
             songList:[]
-        }
+        };
+        this.changeRoute = this.changeRoute.bind(this);
     }
     // 为了防止ajax响应的时间差问题 所以使用index强制设置每条数据在数组中的位置
     getSongList(type,index){
@@ -18,7 +19,8 @@ export default class listcate extends Component{
             return response.json()
         }).then(data=>{
             let arr = this.state.songList;
-            arr[index] = data
+            arr[index] = data;
+            arr[index].type_mine = type;
             this.setState({
                 songList:arr
             })
@@ -36,13 +38,18 @@ export default class listcate extends Component{
         this.getSongList(21,7);
     }
 
+
+    changeRoute(id){
+        this.props.history.push(`/toplist/${id}`);
+    }
+
     render(){
 
         let {songList} = this.state;
         
 
         let list = songList.map((e,i)=>{
-            return <TopItem data={e} key={i}/>
+            return <TopItem data={e} key={i} methods={this.changeRoute}/>
         })
 
         return (

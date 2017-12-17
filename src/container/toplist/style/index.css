@@ -1,0 +1,16 @@
+.pic-bg {
+  height: 5.52777778rem;
+}
+.pic-bg img {
+  width: 10rem;
+  height: 5.52777778rem;
+}
+.top-list .song-pic {
+  width: 0.60185185rem;
+}
+.top-list .song-pic .top-lv {
+  display: block;
+  color: #c1c1c1 !important;
+  font-size: 0.55555556rem;
+  line-height: 1.38888889rem !important;
+}
