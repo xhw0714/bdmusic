@@ -18,6 +18,7 @@
         }
     }
     .song-info{
+        width:400/@rem;
         padding-top: 44/@rem;
         .song-name{
             display: block;
@@ -25,12 +26,18 @@
             font-weight: 600;
             line-height: 70/@rem;
             color:#000;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
         .singer{
             display: block;
             font-size: 32/@rem;
             line-height: 58/@rem;
             padding: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
     }
     .play-btn{
