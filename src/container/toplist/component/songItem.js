@@ -1,6 +1,7 @@
 import React from "react";
-
-export default class SongItem extends React.Component{
+import {connect} from 'react-redux'
+import {playMusic} from './../../../actions/index'
+class SongItem extends React.Component{
     render(){
         let {al,ar,id} = this.props.info;
         let i = this.props.index;
@@ -13,9 +14,11 @@ export default class SongItem extends React.Component{
             }
             author += e.name;
         });
-
+        let {dispatch} = this.props
         return (
-            <li className="song-top-item" song_id={id}>
+            <li className="song-top-item" onClick={()=>{
+                dispatch(playMusic(id))
+            }}>
                 <div className="song-pic fl">
                     <span className="top-lv">{i+1}-</span>
                 </div>
@@ -32,3 +35,5 @@ export default class SongItem extends React.Component{
         )
     }
 }
+
+export default connect()(SongItem)
