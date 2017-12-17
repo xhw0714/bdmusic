@@ -1,3 +1,7 @@
+.search {
+  background-color: #fff;
+  height: 17.77777778rem;
+}
 .search .hidd .search-content {
   display: none !important;
 }
