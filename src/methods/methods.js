@@ -100,6 +100,6 @@ export function artistsDesc (payload){
 //获取歌词
 export function lyric (payload){
     return fetch("http://localhost:3000/lyric?id="+payload.id+"").then(res=>{
-        return res.text()
+        return res.json()
     })
 }
