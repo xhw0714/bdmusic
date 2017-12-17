@@ -34,7 +34,7 @@ export function songUrl (payload){
 // 1006: 歌词
 // 1009: 电台
 export function searchSong(payload){
-    payload.limit = payload.limit?payload.limit:"1";
+    payload.limit = payload.limit?payload.limit:"20";
     payload.offset = payload.offset?payload.offset:"0";
     payload.type = payload.type?payload.type:"1";
     return fetch("http://localhost:3000/search?keywords="+payload.keyword+"&limit="+payload.limit+"&offset="+payload.offset+"&type="+payload.type+"").then(res=>{

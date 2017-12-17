@@ -1,15 +1,64 @@
 import React,{Component} from "react";
 import './style/index.css';
-
+import {searchSong} from './../../methods/methods';
+import SearchItem from './component/searchItem'
 
 export default class search extends Component{
+    constructor(){
+        super();
+        this.state = {
+            value:'',
+            songList:[]
+        }
+
+        this.valueInputHandel = this.valueInputHandel.bind(this);
+        this.searchHandel = this.searchHandel.bind(this)
+    }
+
+
+    valueInputHandel(event){
+        this.setState({value: event.target.value},()=>{
+            this.searchHandel(this.state.value);
+        });
+    }
+
+    searchHandel(value){
+        searchSong({
+            keyword:value
+        }).then(data=>{
+            if(data.result){
+                this.setState({
+                    songList:data.result.songs
+                })
+            }else{
+                this.setState({
+                    songList:[]
+                })
+            };
+        })
+    }
+
     render(){
+        let {songList} = this.state;
+
+        let list = songList.map((e,i)=>{
+            return <SearchItem info={e} key={i}/>
+        })
+
+        
+
         return (
             <div className="search">
-                <div className="hidd">
+                <div className={this.state.songList.length?'hidd':''}>
                     <div className="search-input">
-                        <input type="text" placeholder="歌名、歌手等"/>
-                        <span className="cancel">取消</span>
+                        <input 
+                            type="text" 
+                            placeholder="歌名、歌手等" 
+                            value={this.value}
+                            onInput= {this.valueInputHandel}
+                            // onChange={this.searchHandel(this.state.value)}
+                        />
+                        <span className="cancel" onClick={()=>{this.searchHandel(this.state.value)}}>搜索</span>
                     </div>
 
                     <div className="search-content">
@@ -34,20 +83,7 @@ export default class search extends Component{
                         </div>
                     </div>
                     <ul className="searched-list">
-                        <li>
-                            <div className="fl">
-                                <span className="song-name">背过手</span>
-                                <span className="singer">薛之谦</span>
-                            </div>
-                            <div className=" fr"></div>
-                        </li>
-                        <li>
-                            <div className="fl">
-                                <span className="song-name">背过手</span>
-                                <span className="singer">薛之谦</span>
-                            </div>
-                            <div className="down fr"></div>
-                        </li>
+                        {list}
                     </ul>
                 </div>
 

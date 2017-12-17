@@ -80,17 +80,25 @@
 }
 .search .searched-list li .song-name {
   display: block;
+  width: 5.55555556rem;
   padding: 0.22222222rem 0 0 0.2962963rem;
   font-size: 0.40740741rem;
   line-height: 0.74074074rem;
   color: #000;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .search .searched-list li .singer {
+  width: 5.55555556rem;
   display: block;
   font-size: 0.2962963rem;
   line-height: 0.44444444rem;
   padding-left: 0.2962963rem;
   color: #9d9d9d;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .search .searched-list li .down {
   width: 0.44444444rem;
