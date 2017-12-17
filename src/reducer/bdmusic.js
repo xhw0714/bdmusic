@@ -4,11 +4,11 @@ const bdmusic = (state=[],action)=>{
         case "PLAYMUSIC":
             return [
                 {
-                    id:action.id
+                    id:action.id,
                 },
-                ...state
+                ...state.filter(e=>e.id!==action.id)
             ]
-    
+        
         default:
             return state;
     }

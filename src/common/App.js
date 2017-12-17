@@ -19,6 +19,7 @@ import Singer from './../container/singer/singer';
 import {songDetail,songUrl,lyric} from "../methods/methods"
 
 class App extends Component {
+  playindex = 0;
   constructor(){
     super();
     this.state={
@@ -62,16 +63,18 @@ class App extends Component {
 
 //歌曲播放进度条
   getprogress = ()=>{
+    clearInterval(this.timer);
     this.timer = setInterval(()=>{
       let {playAudio} = this.refs;
-      this.setState({
-        progress:playAudio.prevPlayed,
-        getCurrentTime:playAudio.getCurrentTime()
-      })
+        this.setState({
+          progress:playAudio.prevPlayed,
+          getCurrentTime:playAudio.getCurrentTime()
+        })
     },300)
   }  
 //播放暂停
   setPlayOrPause=()=>{
+    
     let {isPlaying} = this.state;
       this.setState({
         isPlaying:!isPlaying
@@ -83,6 +86,30 @@ class App extends Component {
         }
       })
   }
+
+  //播放完成后或者下一首
+  playEndorNext = (e)=>{
+    // clearInterval(this.timer)
+    
+    let {playArr} = this.props;
+    if(playArr[this.playindex+1]){
+        this.playSong(playArr[++this.playindex].id)
+    }else{
+      alert("没有下一首了")
+    }
+  }
+
+  //播放完成后
+  playPre = (e)=>{
+    // clearInterval(this.timer)
+    let {playArr} = this.props;
+    if(playArr[this.playindex-1]){
+        this.playSong(playArr[--this.playindex].id)
+    }else{
+      alert("没有上一首了")
+    }
+  }
+
 //显示大播放器
   bigplayshowfn= ()=>{
       let {bigPlayShow} = this.state;
@@ -94,14 +121,20 @@ class App extends Component {
   setSeekTo=(num)=>{
     this.refs.playAudio.seekTo(num)
   }
-
+  componentDidMount(){
+    let {store} = this.props;
+    store.subscribe(()=>{
+      this.playindex = 0
+    })
+  }
+  
 
   render() {
-    let {playSong,setPlayOrPause,bigplayshowfn,setSeekTo} = this;
+    let {playSong,setPlayOrPause,bigplayshowfn,setSeekTo,playEndorNext,playindex,playPre} = this;
     let {nowPlayLink,isPlaying,progress,songMes,playingId,bigPlayShow,getCurrentTime,lrcArr} = this.state;
     let {playArr} = this.props;
-    if(playArr.length>0){
-      playSong(playArr[0].id)
+    if(playArr.length>0 ){
+      playSong(playArr[playindex].id)
     }
     return (
       // havaPlay 留出底部的padding值
@@ -118,9 +151,9 @@ class App extends Component {
               <Route path="/toplist/:id?" component={TopList}></Route>
               <Route path="/singer/:id" component={Singer} {...this.props}></Route>
           </div>
-          {playingId!==0?<PlaySmall bigplayshowfn={bigplayshowfn}  arr={playArr[0]} progress={progress} songMes={songMes} isplaying={isPlaying} setPlayOrPause={setPlayOrPause}/>:null}
-          {bigPlayShow?<PlayBig bigplayshowfn={bigplayshowfn} isplaying={isPlaying} getCurrentTime={getCurrentTime} progress={progress} songMes={songMes} setPlayOrPause={setPlayOrPause} lrcArr={lrcArr} setSeekTo={setSeekTo}/>:null}
-          <ReactPlayer url={nowPlayLink} playing={isPlaying} ref="playAudio" width={0} height={0} progressFrequency={0.5}/>
+          {playingId!==0?<PlaySmall bigplayshowfn={bigplayshowfn}  arr={playArr[0]} progress={progress} songMes={songMes} isplaying={isPlaying} setPlayOrPause={setPlayOrPause} playEndorNext={playEndorNext}/>:null}
+          <PlayBig bigplayshowfn={bigplayshowfn} isplaying={isPlaying} getCurrentTime={getCurrentTime} progress={progress} songMes={songMes} setPlayOrPause={setPlayOrPause} playEndorNext={playEndorNext} lrcArr={lrcArr} setSeekTo={setSeekTo} bigPlayShow={bigPlayShow} playPre={playPre}/>
+          <ReactPlayer onEnded={playEndorNext} url={nowPlayLink} playing={isPlaying} ref="playAudio" width={0} height={0} progressFrequency={0.5}/>
       </div>
     )
   }
