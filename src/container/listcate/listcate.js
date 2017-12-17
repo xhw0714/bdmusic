@@ -13,9 +13,11 @@ export default class listcate extends Component{
     }
     // 为了防止ajax响应的时间差问题 所以使用index强制设置每条数据在数组中的位置
     getSongList(type,index){
+        
         listTop({
             idx:type
         }).then(data=>{
+            
             let obj = {
                 type_mine:type,
                 picLink:data.playlist.coverImgUrl,
@@ -30,6 +32,7 @@ export default class listcate extends Component{
     }
     
     componentWillMount(){
+        console.log(1)
         this.getSongList(0,0);
         this.getSongList(1,1);
         this.getSongList(2,2);
@@ -48,7 +51,6 @@ export default class listcate extends Component{
     render(){
 
         let {songList} = this.state;
-        
         let list = songList.map((e,i)=>{
             return <TopItem data={e} key={i} methods={this.changeRoute}/>
         })

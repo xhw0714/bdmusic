@@ -12,7 +12,8 @@ export default class search extends Component{
         }
 
         this.valueInputHandel = this.valueInputHandel.bind(this);
-        this.searchHandel = this.searchHandel.bind(this)
+        this.searchHandel = this.searchHandel.bind(this);
+        this.searchText = this.searchText.bind(this);
     }
 
 
@@ -38,6 +39,15 @@ export default class search extends Component{
         })
     }
 
+    searchText(event){
+        let value = event.target.innerHTML
+        this.setState({
+            value
+        })
+        this.searchHandel(event.target.innerHTML);
+        
+    }
+
     render(){
         let {songList} = this.state;
 
@@ -54,7 +64,7 @@ export default class search extends Component{
                         <input 
                             type="text" 
                             placeholder="歌名、歌手等" 
-                            value={this.value}
+                            value={this.state.value}
                             onInput= {this.valueInputHandel}
                             // onChange={this.searchHandel(this.state.value)}
                         />
@@ -63,24 +73,26 @@ export default class search extends Component{
 
                     <div className="search-content">
                         <ul className="search-text clearfix">
+                            <li className="s-item"  onClick={this.searchText}>gala</li>
+                            <li className="s-item"  onClick={this.searchText}>陈奕迅</li>
+                            <li className="s-item" onClick={this.searchText}>薛之谦</li>
+                            <li className="s-item"  onClick={this.searchText}>赵雷</li>
+                            <li className="s-item"  onClick={this.searchText}>赵传 看不见的地方</li>
+                            <li className="s-item"  onClick={this.searchText}>战狼2原声电影带</li>
+                            
+                            {/* <li className="s-item">红红火火恍恍惚惚</li>
                             <li className="s-item">红红火火</li>
-                            <li className="s-item">红红火火恍恍惚惚</li>
-                            <li className="s-item">红红火火</li>
-                            <li className="s-item">红红火火恍恍惚惚</li>
-                            <li className="s-item">红红火火</li>
-                            <li className="s-item">红红火火恍恍惚惚</li>
-                            <li className="s-item">红红火火</li>
-                            <li className="s-item">红红火火恍恍惚惚</li>
+                            <li className="s-item">红红火火恍恍惚惚</li> */}
                         </ul>
 
-                        <ul className="search-history">
+                        {/* <ul className="search-history">
                             <li className="h-item">
                                 红红火火恍恍惚惚
                             </li>
                         </ul>
                         <div className="clear-btn">
                             清除历史记录
-                        </div>
+                        </div> */}
                     </div>
                     <ul className="searched-list">
                         {list}

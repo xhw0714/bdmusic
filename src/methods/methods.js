@@ -71,7 +71,7 @@ export function searchSong(payload){
 // "22": 云音乐ACG音乐榜,
 // "23": 云音乐嘻哈榜
 export function listTop (payload){
-    return fetch("http://localhost:3000/top/list?idx="+payload.idx+"&count="+payload.count).then(res=>{
+    return fetch("http://localhost:3000/top/list?idx="+payload.idx+"").then(res=>{
         return res.json()
     })
 }
@@ -100,6 +100,14 @@ export function artistsDesc (payload){
 //获取歌词
 export function lyric (payload){
     return fetch("http://localhost:3000/lyric?id="+payload.id+"").then(res=>{
+        return res.json()
+    })
+}
+
+// 获取歌手排行榜
+
+export function artists (payload){
+    return fetch("http://localhost:3000/toplist/artist").then(res=>{
         return res.json()
     })
 }

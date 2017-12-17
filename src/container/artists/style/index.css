@@ -19,6 +19,9 @@
   color: #00a8ff;
   border-bottom: 3px solid #00a8ff;
 }
+.singer .singers {
+  padding-top: 0.19444444rem;
+}
 .singer .singers .singers-title {
   font-size: 0.55555556rem;
   font-weight: normal;

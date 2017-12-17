@@ -18,6 +18,7 @@
   height: 1.38888889rem;
 }
 .music-play-small .song-info {
+  width: 3.7037037rem;
   padding-top: 0.40740741rem;
 }
 .music-play-small .song-info .song-name {
@@ -26,12 +27,18 @@
   font-weight: 600;
   line-height: 0.64814815rem;
   color: #000;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .music-play-small .song-info .singer {
   display: block;
   font-size: 0.2962963rem;
   line-height: 0.53703704rem;
   padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .music-play-small .play-btn {
   width: 1.06481481rem;
