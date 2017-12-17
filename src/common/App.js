@@ -39,9 +39,7 @@ class App extends Component {
     let {getprogress} = this;
     if(playingId === id)return;
     songUrl({id}).then(url=>{
-      
       songDetail({id}).then(detail=>{
-        
         lyric({id}).then(lryic=>{
           this.setState({
             nowPlayLink:url.data[0].url, //"http://localhost/1.mp3"
