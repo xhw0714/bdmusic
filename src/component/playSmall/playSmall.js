@@ -20,11 +20,11 @@ export default class extends Component{
 
                 <div className="fl">
                     <span className="song-pic fl">
-                        <img src={songMes.pic_big} alt=""/>
+                        <img src={songMes.al.picUrl} alt=""/>
                     </span>
                     <span className="song-info fl">
-                        <span className="song-name">{songMes.title}</span>
-                        <span className="singer">{songMes.author}</span>
+                        <span className="song-name">{songMes.name}</span>
+                        <span className="singer">{songMes.ar[0].name}</span>
                     </span>
                 </div>
                 <div className="fr">

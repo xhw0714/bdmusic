@@ -8,26 +8,29 @@ function totwo(n){
 export default class playBig extends Component{
     
     seek = 0;
-
+    //歌词滚动
     componentDidUpdate() {
         let {getCurrentTime} = this.props;
         let {songTextBox} = this.refs;
         let lis = document.querySelectorAll(".song-div .song-text li");
         let BoxHeight = document.querySelector(".song-div").offsetHeight;
         for(var i=0;i<lis.length;i++){
-            if(lis[i].dataset.time === Math.floor(getCurrentTime)){
+            if(Number(lis[i].dataset.time) === Math.floor(getCurrentTime)){
                 this.goTop = lis[i].offsetTop;
             }
         }
         songTextBox.style.top = - (this.goTop-BoxHeight/2) + "px";
     }
+    componentDidMount(){
+        let BoxHeight = document.querySelector(".song-div").offsetHeight;
+        let {songTextBox} = this.refs;
+        songTextBox.style.top = BoxHeight/2 + "px";
+    }
 
+    //拖拽进度
     drapSong =(e)=>{
         this.props.setPlayOrPause();
-        document.addEventListener("touchmove",(e)=>{
-            this.drapMove(e)
-        },false)
-
+        document.addEventListener("touchmove",this.drapMove,false)
     }
 
     drapMove = (e) => {
@@ -47,57 +50,32 @@ export default class playBig extends Component{
     render(){
         let {bigplayshowfn,isplaying,progress,setPlayOrPause,getCurrentTime,songMes,lrcArr} = this.props;
         let {drapSong,drapEnd} = this;
+        //根据时间拆分歌词
         let newTime = 0;
-        let nextTime = 0;
         let lrcshow = lrcArr.map((e,i)=>{
             let newe = e.replace(/\[[^\]]+\]/g,function($0){
                 newTime = Number($0.replace(/\[|\]/g,'').slice(0,2))*60 + Number($0.replace(/\[|\]/g,'').slice(3,5));
                 return '';
             })
-            if(lrcArr[i+1]){
-                lrcArr[i+1].replace(/\[[^\]]+\]/g,function($0){
-                    nextTime = Number($0.replace(/\[|\]/g,'').slice(0,2))*60 + Number($0.replace(/\[|\]/g,'').slice(3,5));
-                    return '';
-                })
-            }else{
-                nextTime = newTime;
-            }
-            if(Math.floor(getCurrentTime) === newTime){
-                this.newTime = newTime;
-            }
-            if(newe.trim() === "")return '';
-            return <li key={i} className={getCurrentTime>newTime&&getCurrentTime<nextTime?"on":""} data-time={isNaN(newTime)?0:newTime}>{newe}</li>
+            if(newe.trim() === '')return '';
+            return {name:newe,time:isNaN(newTime)?0:newTime}
+        }).filter(e=>e!=='');
+        let item = lrcshow.map((e,i)=>{
+            return <li key={i} className={getCurrentTime>=e.time&&getCurrentTime<lrcshow[i+1].time?"on":''} data-time={e.time}>{e.name}</li>
         })
-        
+        //渲染
         return (
             <section className="big-play">
                 <div className="b-p-head clearfix">
                     <span className="back fl" onClick={bigplayshowfn}></span>
                     {/* 歌曲信息 两个span歌名和歌手 ul为歌词 */}
                     <div className="song-all">
-                        <span className="song-name">{songMes.title}</span>
-                        <span className="singer">{songMes.author}</span>
+                        <span className="song-name">{songMes.name}</span>
+                        <span className="singer">{songMes.ar[0].name}</span>
                         <div className="song-div">
                         <ul className="song-text"  ref="songTextBox">
-                            {/* <li>你我约定</li>
-                            <li>难过的往事不要提</li>
-                            <li>你我约定</li>
-                            <li>难过的往事不要提</li>
-                            <li className="on">你我约定</li>
-                            <li>难过的往事不要提</li>
-                            <li>你我约定</li>
-                            <li>难过的往事不要提</li>
-                            <li>你我约定</li>
-                            <li>难过的往事不要提</li>
-                            <li>你我约定</li>
-                            <li>难过的往事不要提</li>
-                            <li>你我约定</li>
-                            <li>难过的往事不要提</li>
-                            <li>你我约定</li>
-                            <li>难过的往事不要提</li>
-                            <li>你我约定</li>
-                            <li>难过的往事不要提</li> */}
-                            {lrcshow}
+                          
+                            {lrcArr.length>0?item:"没有歌词"}
                         </ul>
                         </div>
                     </div>

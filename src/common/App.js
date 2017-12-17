@@ -15,12 +15,14 @@ import {connect} from "react-redux";
 import ReactPlayer from 'react-player';
 import TopList from './../container/toplist/topList';
 
+import {songDetail,songUrl,lyric} from "../methods/methods"
+
 class App extends Component {
   constructor(){
     super();
     this.state={
       nowPlayIndex:0,
-      nowPlayLink:'http://m10.music.126.net/20171217115047/20bda43afab2c8aa7c650ea78888850f/ymusic/603f/2799/ea87/0ac26d0e219c049b2c5a12fd6be2826f.mp3',
+      nowPlayLink:'',
       isPlaying:true,
       playingId:0,
       progress:0,
@@ -30,50 +32,36 @@ class App extends Component {
       lrcArr:[]
     }
   }
-
+//播放歌曲
   playSong=(id)=>{
     // let {playAudio} = this.refs;
     let {playingId} = this.state;
     let {getprogress} = this;
     if(playingId === id)return;
-    fetch("http://localhost:3000/music/url?id="+id+"").then(res=>{
-      return res.json();
-    }).then(data=>{
-      console.log(data)
-// <<<<<<< HEAD
-      // this.parseLyric(data.songinfo.lrclink)
-      //   this.setState({
-      //     nowPlayLink:data.bitrate.file_link, //"http://localhost/1.mp3"
-      //     isPlaying:true,
-      //     playingId:id,
-      //     songMes:data.songinfo
-      //   },()=>{
-      //     getprogress()
-      //   })
-// =======
-//       this.parseLyric(data.songinfo.lrclink)
-//         this.setState({
-//           nowPlayLink:"http://localhost/1.mp3", //data.bitrate.file_link
-//           isPlaying:true,
-//           playingId:id,
-//           songMes:data.songinfo
-//         },()=>{
-//           getprogress()
-//         })
-// >>>>>>> c7fdce4c013f3eaf2a13c40621357e831b42437f
-    })
-  }
-
-  parseLyric = (lrc)=>{
-    fetch(lrc).then(res=>{
-      return res.text()
-    }).then(data=>{
-      this.setState({
-        lrcArr:data.split("\n")
+    songUrl({id}).then(url=>{
+      
+      songDetail({id}).then(detail=>{
+        
+        lyric({id}).then(lryic=>{
+          this.setState({
+            nowPlayLink:url.data[0].url, //"http://localhost/1.mp3"
+            isPlaying:true,
+            playingId:id,
+            songMes:detail.songs[0]
+          },()=>{
+            getprogress();
+            if(lryic.lrc){
+              this.setState({
+                lrcArr:lryic.lrc.lyric.split("\n")
+              })
+            }
+          })
+        })
       })
     })
   }
 
+//歌曲播放进度条
   getprogress = ()=>{
     this.timer = setInterval(()=>{
       let {playAudio} = this.refs;
@@ -83,7 +71,7 @@ class App extends Component {
       })
     },300)
   }  
-
+//播放暂停
   setPlayOrPause=()=>{
     let {isPlaying} = this.state;
       this.setState({
@@ -96,23 +84,18 @@ class App extends Component {
         }
       })
   }
-
+//显示大播放器
   bigplayshowfn= ()=>{
       let {bigPlayShow} = this.state;
       this.setState({
         bigPlayShow:!bigPlayShow
       })
   }
-
+//拖拽进度条
   setSeekTo=(num)=>{
     this.refs.playAudio.seekTo(num)
   }
-  // componentDidUpdate(){
-  //   let {playArr} = this.props;
-  //   if(playArr.length>0){
-  //     this.playSong(playArr[0].id)
-  //   }
-  // }
+
 
   render() {
     let {playSong,setPlayOrPause,bigplayshowfn,setSeekTo} = this;
