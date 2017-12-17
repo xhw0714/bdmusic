@@ -48,7 +48,8 @@
   padding: 0 0.47222222rem;
 }
 .songlist .songlist-box .songlist-list li {
-  width: 4.41666667rem;
+  overflow: hidden;
+  width: 4.33333333rem;
   margin-right: 0.22222222rem;
 }
 .songlist .songlist-box .songlist-list .item-pic {

@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {playMusic} from './../../../actions/index'
 class SongItem extends React.Component{
     render(){
-        let {al,ar,id} = this.props.info;
+        let {name,ar,id} = this.props.info;
         let i = this.props.index;
         
 
@@ -14,7 +14,8 @@ class SongItem extends React.Component{
             }
             author += e.name;
         });
-        let {dispatch} = this.props
+        let {dispatch} = this.props;
+        console.log(this.props)
         return (
             <li className="song-top-item" onClick={()=>{
                 dispatch(playMusic(id))
@@ -26,7 +27,7 @@ class SongItem extends React.Component{
 
                 </div>
                 <div className="song-info fl">
-                    <span className="song-name">{al.name}</span>
+                    <span className="song-name">{name}</span>
                     <span className="singer">{author}</span>
                 </div>
                 <div className="down fr">
