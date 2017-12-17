@@ -2,6 +2,7 @@ import React,{Component} from "react";
 import ImgList from "./component/img_list"
 import IndexList from "./component/index_list"
 import './style/home.css';
+import {newSong} from "../../methods/methods"
 
 export default class arrtists extends Component{
     constructor(){
@@ -14,19 +15,15 @@ export default class arrtists extends Component{
         }
     }
     componentWillMount(){
-        fetch("http://localhost/bdmusic/php/list.php?type=1&size=9&offset=0",{
-            method:"GET"
-        }).then(response=>{
-            return response.json();
-        }).then(data=>{
-          
+        newSong().then(data=>{
+            // console.log(data)
             this.setState({
-                todaySong:data.song_list.slice(0,6),
-                newSong:data.song_list.slice(6,9)             
+                todaySong:data.result.slice(0,6),
+                newSong:data.result.slice(6,9)             
             })
         });
 
-        this.changeIndexAndData(2,0)
+        // this.changeIndexAndData(2,0)
     }
 
      changeIndexAndData = (type,index)=>{
@@ -46,13 +43,13 @@ export default class arrtists extends Component{
     let {todaySong,newSong,IndexListSong,index} = this.state;
     
     let todaySongList = todaySong.map(e=>{
-        return <ImgList mes={e} key={e.song_id}/>
+        return <ImgList mes={e} key={e.id}/>
     })
     let newSongList = newSong.map(e=>{
-        return <ImgList mes={e} key={e.song_id}/>
+        return <ImgList mes={e} key={e.id}/>
     })
     let IndexListSongCate = IndexListSong.map((e,index)=>{
-        return <IndexList mes={e} key={e.song_id} index={index}/>
+        return <IndexList mes={e} key={e.id} index={index}/>
     })
 
     let classActive = "song-top-item active";

@@ -5,18 +5,18 @@ import {connect} from "react-redux";
 
     render() {
         if(this.props.mes){
-            var {pic_big,title,song_id} = this.props.mes;
+            var {song,name,id} = this.props.mes;
         }
         let {dispatch} = this.props;
         return (
-            <li className="home-today-item" songid={song_id} onClick={e=>{
-                dispatch(playMusic(song_id))
+            <li className="home-today-item" songid={id} onClick={e=>{
+                dispatch(playMusic(id))
             }}>
                 <div className="home-today-item-pic">
-                    <img src={pic_big} alt=""/>
+                    <img src={song.album.blurPicUrl} alt=""/>
                     <span className="home-today-item-play"></span>
                 </div>
-                <div className="home-today-item-songname">{title}</div>
+                <div className="home-today-item-songname">{name}</div>
             </li>
         )
     }

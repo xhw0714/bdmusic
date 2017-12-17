@@ -19,7 +19,7 @@ class App extends Component {
     super();
     this.state={
       nowPlayIndex:0,
-      nowPlayLink:'',
+      nowPlayLink:'http://m10.music.126.net/20171217115047/20bda43afab2c8aa7c650ea78888850f/ymusic/603f/2799/ea87/0ac26d0e219c049b2c5a12fd6be2826f.mp3',
       isPlaying:true,
       playingId:0,
       progress:0,
@@ -31,23 +31,23 @@ class App extends Component {
   }
 
   playSong=(id)=>{
-    let {playAudio} = this.refs;
+    // let {playAudio} = this.refs;
     let {playingId} = this.state;
     let {getprogress} = this;
     if(playingId === id)return;
-    console.log(playAudio)
-    fetch("http://localhost/bdmusic/php/songmes.php?songid="+id+"").then(res=>{
+    fetch("http://localhost:3000/music/url?id="+id+"").then(res=>{
       return res.json();
     }).then(data=>{
-      this.parseLyric(data.songinfo.lrclink)
-        this.setState({
-          nowPlayLink:"http://localhost/1.mp3", //data.bitrate.file_link
-          isPlaying:true,
-          playingId:id,
-          songMes:data.songinfo
-        },()=>{
-          getprogress()
-        })
+      console.log(data)
+      // this.parseLyric(data.songinfo.lrclink)
+      //   this.setState({
+      //     nowPlayLink:data.bitrate.file_link, //"http://localhost/1.mp3"
+      //     isPlaying:true,
+      //     playingId:id,
+      //     songMes:data.songinfo
+      //   },()=>{
+      //     getprogress()
+      //   })
     })
   }
 
@@ -94,6 +94,12 @@ class App extends Component {
   setSeekTo=(num)=>{
     this.refs.playAudio.seekTo(num)
   }
+  // componentDidUpdate(){
+  //   let {playArr} = this.props;
+  //   if(playArr.length>0){
+  //     this.playSong(playArr[0].id)
+  //   }
+  // }
 
   render() {
     let {playSong,setPlayOrPause,bigplayshowfn,setSeekTo} = this;

@@ -11,11 +11,11 @@ export default class playBig extends Component{
 
     componentDidUpdate() {
         let {getCurrentTime} = this.props;
-        let {songTextBox,drap} = this.refs;
+        let {songTextBox} = this.refs;
         let lis = document.querySelectorAll(".song-div .song-text li");
         let BoxHeight = document.querySelector(".song-div").offsetHeight;
         for(var i=0;i<lis.length;i++){
-            if(lis[i].dataset.time == Math.floor(getCurrentTime)){
+            if(lis[i].dataset.time === Math.floor(getCurrentTime)){
                 this.goTop = lis[i].offsetTop;
             }
         }

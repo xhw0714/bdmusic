@@ -1,6 +1,6 @@
 # README
 
-用React,React-router写的百度音乐项目。引用百度音乐api
+用React,React-router,redux,fetch写的百度音乐项目。引用百度音乐api
 
 ### 项目结构
 
@@ -20,6 +20,7 @@ php //api文件
 public //模板文件
 scripts //配置文件，系统默认
 src //开发文件
+	--actions  //redux的actions
 	--common //公用的样式图片
 	--component //共用组件
 		--headNav //头部导航，附带样式
