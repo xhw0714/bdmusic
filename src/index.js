@@ -13,10 +13,6 @@ const store = createStore(reducer);
 
 ReactDOM.render(
 <Provider store={store}>
-<<<<<<< HEAD
-
-=======
->>>>>>> 2f17bd380b0076ca2eb94e48509a37c2acbe66ab
     <Router >
         <Route path="/"  render={(props)=>{
             return (<App location={props.location} store={store}/>)
