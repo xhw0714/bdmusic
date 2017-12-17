@@ -26,13 +26,14 @@ export default class arrtists extends Component{
             })
         });
 
-        // this.changeIndexAndData(2,0)
+        this.changeIndexAndData(0,0)
     }
 
      changeIndexAndData = (type,index)=>{
-        listTop().then(data=>{
+        listTop({idx:type}).then(data=>{
+            
             this.setState({
-                IndexListSong:data.song_list,
+                IndexListSong:data.playlist.tracks.slice(0,6),
                 index,
                 typeMine:type
             })
@@ -93,9 +94,10 @@ export default class arrtists extends Component{
                         </span>
                     </h2>
                     <div className="song-top">
-                        <span className={index===0?classActive:'song-top-item'} onClick={e=>this.changeIndexAndData(1,0)}>热歌榜</span>
-                        <span className={index===1?classActive:'song-top-item'} onClick={e=>this.changeIndexAndData(16,1)}>流行榜</span>
-                        <span className={index===2?classActive:'song-top-item'} onClick={e=>this.changeIndexAndData(21,2)}>King榜</span>
+                        <span className={index===0?classActive:'song-top-item'} onClick={e=>this.changeIndexAndData(0,0)}>新歌榜</span>
+                        <span className={index===1?classActive:'song-top-item'} onClick={e=>this.changeIndexAndData(1,1)}>热歌榜</span>
+                        <span className={index===2?classActive:'song-top-item'} onClick={e=>this.changeIndexAndData(2,2)}>原创榜</span>
+                        
                     </div>
                     <ul className="song-top-list">
                     {IndexListSongCate}

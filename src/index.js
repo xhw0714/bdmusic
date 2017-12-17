@@ -14,7 +14,9 @@ const store = createStore(reducer);
 ReactDOM.render(
 <Provider store={store}>
     <Router >
-        <Route path="/" component={App} />
+        <Route path="/"  render={(props)=>{
+            return (<App location={props.location} store={store}/>)
+        }} />
     </Router>
 </Provider>
 , document.getElementById('root'));

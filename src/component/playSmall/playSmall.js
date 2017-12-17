@@ -10,7 +10,7 @@ export default class extends Component{
     }
     
     render(){
-        let {progress,songMes,isplaying,setPlayOrPause,bigplayshowfn} = this.props;
+        let {progress,songMes,isplaying,setPlayOrPause,bigplayshowfn,playEndorNext} = this.props;
         return (
             <div className="music-play-small clearfix" onClick={e=>bigplayshowfn()}>
                 <div 
@@ -33,7 +33,10 @@ export default class extends Component{
                         e.stopPropagation();
                         setPlayOrPause()
                     }}></div>
-                    <div className="next-btn fl"></div>
+                    <div className="next-btn fl" onClick={e=>{
+                        e.stopPropagation();
+                        playEndorNext()
+                    }}></div>
                     {/* <span className="list-btn fl"></span> */}
                 </div>
                 
