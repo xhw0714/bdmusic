@@ -27,7 +27,7 @@ export default class arrtists extends Component{
 
         let {singers} = this.state;
         let list = singers.map((e)=>{
-            return <Singer info ={e} key={e.id} method={this.changeRoute}/>
+            return <Singer info ={e} key={e.id} method={this.changeRoute} Singerid={e.id}/>
         })
 
         return (

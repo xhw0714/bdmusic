@@ -84,7 +84,7 @@ export default class playBig extends Component{
         }
         //渲染
         return (
-            <section className="big-play" style={bigPlayShow?{}:{"zIndex":"-5000"}}>
+            <section className="big-play" style={bigPlayShow?{}:{"zIndex":"-5000","opacity":"0"}}>
                 <div className="b-p-head clearfix">
                     <span className="back fl" onClick={bigplayshowfn}></span>
                     {/* 歌曲信息 两个span歌名和歌手 ul为歌词 */}

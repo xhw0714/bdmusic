@@ -13,12 +13,12 @@ export default class Singer extends Component {
         }
     };
 
-    componentWillMount() {
-        let id = 6452;
+    componentDidMount() {
+        let id = this.props.match.params.id;
         artistsSong({
             id
         }).then((data)=>{
-            console.log(data.artist.name);
+            
             this.setState({
                 picLink:data.artist.picUrl,
                 name:data.artist.name,
@@ -29,7 +29,7 @@ export default class Singer extends Component {
 
     render(){
         let {list,picLink,name} = this.state;
-
+        
         let l = list.map((e)=>{
             return <Item info={e} key={e.id}/>
         })
