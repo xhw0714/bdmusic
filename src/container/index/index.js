@@ -2,7 +2,7 @@ import React,{Component} from "react";
 import ImgList from "./component/img_list"
 import IndexList from "./component/index_list"
 import './style/home.css';
-import {newSong} from "../../methods/methods"
+import {newSong,listTop} from "../../methods/methods"
 
 export default class arrtists extends Component{
     constructor(){
@@ -30,11 +30,7 @@ export default class arrtists extends Component{
     }
 
      changeIndexAndData = (type,index)=>{
-        fetch("http://localhost/bdmusic/php/list.php?type="+type+"&size=6&offset=0",{
-            method:"GET"
-        }).then(response=>{
-            return response.json();
-        }).then(data=>{
+        listTop().then(data=>{
             this.setState({
                 IndexListSong:data.song_list,
                 index,
