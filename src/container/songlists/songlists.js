@@ -1,5 +1,5 @@
 import React,{Component} from "react";
-
+import {searchSong,songDetail} from './../../methods/methods'
 import './style/index.css';
 import Imglist from "./component/Imglist"
 
@@ -8,27 +8,90 @@ export default class songlists extends Component{
         super();
         this.state={
             list:[],
-            newTag:"流行"
+            lists:[],
+            newTag:"流行",
+            offset:1
         }
+
+        this.getSongList = this.getSongList.bind(this);
     }
     componentWillMount(){
-        this.getSongList(1)
+        this.getSongList('流行')
     }
-    getSongList = (type,tag="流行") => {
-        fetch("http://localhost/bdmusic/php/list.php?type="+type+"&size=6&offset=0").then(res=>{
-            return res.json()
-        }).then(data=>{
-            this.setState({
-                list:data.song_list,
-                newTag:tag
+    getSongList = (tag="流行",limit=6,offset=1) => {
+        searchSong({
+            keyword:tag,
+            limit,
+            offset
+        })
+        .then(data=>{
+            if(data.result){
+                this.setState({
+                    lists:data.result.songs,
+                    newTag:tag
+                },()=>{
+                    this.state.lists.forEach((e,i) => {
+                        songDetail({
+                            id:e.id
+                        }).then((data)=>{
+                            let arr = this.state.list;
+                            arr[i] = data.songs[0]
+                            this.setState({
+                                list:arr
+                            })
+                        })
+                    });
+                })
+            }else{
+                this.setState({
+                    lists:[]
+                })
+            };
+        })
+    }
+
+    getListMore(){
+        this.setState({
+            offset:this.state.offset+1
+        },()=>{
+            searchSong({
+                keyword:this.state.newTag,
+                limit:6,
+                offset:this.state.offset*6
+            })
+            .then(data=>{
+                console.log(data)
+                if(data.result){
+                    this.setState({
+                        lists:[...this.state.lists,...data.result.songs],
+                    },()=>{
+                        console.log(this)
+                        this.state.lists.forEach((e,i) => {
+                            songDetail({
+                                id:e.id
+                            }).then((data)=>{
+                                let arr = this.state.list;
+                                arr[i] = data.songs[0]
+                                this.setState({
+                                    list:arr
+                                })
+                            })
+                        });
+                    })
+                }else{
+                    this.setState({
+                        lists:[]
+                    })
+                };
             })
         })
     }
     render(){
         let {list,newTag} = this.state;
         let Songlist = list.map(e=>{
-            return <Imglist mes={e} key={e.song_id}/>
-        })
+            return <Imglist mes={e} key={e.id}/>
+        });
+        
         return (
             <div className="songlist">
                 <div className="songlist-c">
@@ -37,21 +100,21 @@ export default class songlists extends Component{
                     </h2>
                     <ul className="hot-list clearfix">
                         <li className="big fl">
-                            <span className="text" onClick={e=>this.getSongList(1,"流行")}>流行</span>
+                            <span className="text" onClick={e=>this.getSongList("流行")}>流行</span>
                         </li>
                         <li className="small-list fr">
                             <ul className="fl">
                                 <li className="small fl">
-                                    <span  className="text" onClick={e=>this.getSongList(12,"爵士")}>爵士</span>
+                                    <span  className="text" onClick={e=>this.getSongList("爵士")}>爵士</span>
                                 </li>
                                 <li  className="small fl">
-                                    <span  className="text" onClick={e=>this.getSongList(11,"摇滚")}>摇滚</span>
+                                    <span  className="text" onClick={e=>this.getSongList("摇滚")}>摇滚</span>
                                 </li>
                                 <li  className="small fl">
-                                    <span  className="text" onClick={e=>this.getSongList(23,"情歌")}>情歌</span>
+                                    <span  className="text" onClick={e=>this.getSongList("情歌")}>情歌</span>
                                 </li>
                                 <li  className="small fl">
-                                    <span  className="text" onClick={e=>this.getSongList(22,"老歌")}>老歌</span>
+                                    <span  className="text" onClick={e=>this.getSongList("老歌")}>老歌</span>
                                 </li>
                             </ul>
                         </li>
@@ -107,7 +170,11 @@ export default class songlists extends Component{
                             <div className="item-info">华语·流行·么么</div>
                             <div className="item-name">男人心事让音乐慢慢诉说</div>
                         </li> */}
+                        
                     </ul>
+                    <div className="get-more" onClick={()=>{
+                        this.getListMore()
+                    }}>点击获取更多</div>
                 </div>
             </div>
         )

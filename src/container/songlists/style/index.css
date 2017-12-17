@@ -49,11 +49,12 @@
 }
 .songlist .songlist-box .songlist-list li {
   width: 4.41666667rem;
-  margin-right:0.22rem;
+  margin-right: 0.22222222rem;
 }
 .songlist .songlist-box .songlist-list .item-pic {
   width: 4.38888889rem;
   height: 4.38888889rem;
+  overflow: hidden;
   border: 0.02777778rem solid #e5e5e5;
   position: relative;
 }
@@ -92,4 +93,13 @@
   font-size: 0.35185185rem;
   line-height: 0.55555556rem;
   overflow: hidden;
+}
+.songlist .songlist-box .get-more {
+  border-top: 1px solid #c1c1c1;
+  width: 7.40740741rem;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 0.44444444rem;
+  line-height: 1.11111111rem;
+  padding-bottom: 0.37037037rem;
 }

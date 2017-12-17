@@ -14,6 +14,7 @@ import PlayBig from './../component/playBig/playBig';
 import {connect} from "react-redux";
 import ReactPlayer from 'react-player';
 import TopList from './../container/toplist/topList';
+import Singer from './../container/singer/singer';
 
 import {songDetail,songUrl,lyric} from "../methods/methods"
 
@@ -115,6 +116,7 @@ class App extends Component {
               <Route path="/listcate"  component={Listcate}></Route>
               <Route path="/login"  component={Login}></Route>
               <Route path="/toplist/:id?" component={TopList}></Route>
+              <Route path="/singer/:id" component={Singer} {...this.props}></Route>
           </div>
           {playingId!==0?<PlaySmall bigplayshowfn={bigplayshowfn}  arr={playArr[0]} progress={progress} songMes={songMes} isplaying={isPlaying} setPlayOrPause={setPlayOrPause}/>:null}
           {bigPlayShow?<PlayBig bigplayshowfn={bigplayshowfn} isplaying={isPlaying} getCurrentTime={getCurrentTime} progress={progress} songMes={songMes} setPlayOrPause={setPlayOrPause} lrcArr={lrcArr} setSeekTo={setSeekTo}/>:null}

@@ -103,3 +103,11 @@ export function lyric (payload){
         return res.json()
     })
 }
+
+// 获取歌手排行榜
+
+export function artists (payload){
+    return fetch("http://localhost:3000/toplist/artist").then(res=>{
+        return res.json()
+    })
+}
