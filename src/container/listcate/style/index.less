@@ -12,8 +12,8 @@
             position: relative;
             img{
                 height: 288/@rem;
-                width: 460/@rem;
-                margin-left: -86/@rem;
+                // width: 460/@rem;
+                // margin-left: -86/@rem;
             }
             span{
                 position: absolute;
@@ -27,10 +27,14 @@
         }
         .song-box{
             padding-top:13/@rem;
+            width: 600/@rem;
             .song-item{
                 font-size: 46/@rem;
                 line-height: 90/@rem;
                 color: #000;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
                 span{
                     display: inline-block;
                     vertical-align: top;

@@ -9,7 +9,7 @@ export default class extends Component{
         return (
             <li className="song-item">
                 <span className="num">{index+1}</span>
-                <span className="song-name">{ele.title}</span>
+                <span className="song-name">{ele.al.name}</span>
             </li>
         )
     }
