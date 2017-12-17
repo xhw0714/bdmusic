@@ -80,61 +80,6 @@
   background-color: #fff;
   transform: rotate(45deg);
 }
-.home-content .song-top-list {
-  margin: 0 0.48148148rem;
-}
-.home-content .song-top-list .song-top-item {
-  height: 1.57407407rem;
-  padding-top: 0.33333333rem;
-  border-bottom: 3px solid #f1f1f1;
-}
-.home-content .song-top-list .song-top-item .song-pic {
-  position: relative;
-}
-.home-content .song-top-list .song-top-item .song-pic img {
-  display: block;
-  width: 1.22222222rem;
-}
-.home-content .song-top-list .song-top-item .song-pic .level {
-  position: absolute;
-  font-size: 0.37037037rem;
-  line-height: 0.55555556rem;
-  color: #fff;
-  bottom: 0;
-  right: 0.09259259rem;
-}
-.home-content .song-top-list .song-top-item .song-info {
-  width: 6.11111111rem;
-}
-.home-content .song-top-list .song-top-item .song-info span {
-  display: block;
-}
-.home-content .song-top-list .song-top-item .song-info .song-name {
-  font-size: 0.40740741rem;
-  line-height: 0.74074074rem;
-}
-.home-content .song-top-list .song-top-item .song-info .singer {
-  font-size: 0.2962963rem;
-  padding: 0;
-  line-height: 0.33333333rem;
-}
-.home-content .song-top-list .song-top-item .play {
-  margin: 0.44444444rem 0.25925926rem 0;
-  width: 0.35185185rem;
-  height: 0.35185185rem;
-}
-.home-content .song-top-list .song-top-item .active {
-  background: url('../img/play.gif') no-repeat;
-  background-size: 0.35185185rem;
-}
-.home-content .song-top-list .song-top-item .down {
-  margin-top: 0.37037037rem;
-  display: block;
-  width: 0.44444444rem;
-  height: 0.44444444rem;
-  background: url('../img/download.png') no-repeat;
-  background-size: 0.44444444rem 0.44444444rem;
-}
 .home-content .find {
   height: 1.15740741rem;
   padding-top: 0.50925926rem;
@@ -146,4 +91,62 @@
   margin: 0 auto;
   font-size: 0.31481481rem;
   line-height: 0.64814815rem;
+}
+.song-top-list {
+  margin: 0 0.48148148rem;
+}
+.song-top-list .song-top-item {
+  height: 1.57407407rem;
+  padding-top: 0.33333333rem;
+  border-bottom: 3px solid #f1f1f1;
+}
+.song-top-list .song-top-item .song-pic {
+  position: relative;
+}
+.song-top-list .song-top-item .song-pic img {
+  display: block;
+  width: 1.22222222rem;
+}
+.song-top-list .song-top-item .song-pic .level {
+  position: absolute;
+  font-size: 0.37037037rem;
+  line-height: 0.55555556rem;
+  color: #fff;
+  bottom: 0;
+  right: 0.09259259rem;
+}
+.song-top-list .song-top-item .song-info {
+  width: 6.11111111rem;
+}
+.song-top-list .song-top-item .song-info span {
+  display: block;
+}
+.song-top-list .song-top-item .song-info .song-name {
+  font-size: 0.40740741rem;
+  line-height: 0.74074074rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.song-top-list .song-top-item .song-info .singer {
+  font-size: 0.2962963rem;
+  padding: 0;
+  line-height: 0.33333333rem;
+}
+.song-top-list .song-top-item .play {
+  margin: 0.44444444rem 0.25925926rem 0;
+  width: 0.35185185rem;
+  height: 0.35185185rem;
+}
+.song-top-list .song-top-item .active {
+  background: url('../img/play.gif') no-repeat;
+  background-size: 0.35185185rem;
+}
+.song-top-list .song-top-item .down {
+  margin-top: 0.37037037rem;
+  display: block;
+  width: 0.44444444rem;
+  height: 0.44444444rem;
+  background: url('../img/download.png') no-repeat;
+  background-size: 0.44444444rem 0.44444444rem;
 }

@@ -13,6 +13,7 @@ import Login from './../component/login/login';
 import PlayBig from './../component/playBig/playBig';
 import {connect} from "react-redux";
 import ReactPlayer from 'react-player';
+import TopList from './../container/toplist/topList';
 
 class App extends Component {
   constructor(){
@@ -39,6 +40,7 @@ class App extends Component {
       return res.json();
     }).then(data=>{
       console.log(data)
+// <<<<<<< HEAD
       // this.parseLyric(data.songinfo.lrclink)
       //   this.setState({
       //     nowPlayLink:data.bitrate.file_link, //"http://localhost/1.mp3"
@@ -48,6 +50,17 @@ class App extends Component {
       //   },()=>{
       //     getprogress()
       //   })
+// =======
+//       this.parseLyric(data.songinfo.lrclink)
+//         this.setState({
+//           nowPlayLink:"http://localhost/1.mp3", //data.bitrate.file_link
+//           isPlaying:true,
+//           playingId:id,
+//           songMes:data.songinfo
+//         },()=>{
+//           getprogress()
+//         })
+// >>>>>>> c7fdce4c013f3eaf2a13c40621357e831b42437f
     })
   }
 
@@ -120,6 +133,7 @@ class App extends Component {
               <Route path="/ucenter"  component={Ucenter}></Route>
               <Route path="/listcate"  component={Listcate}></Route>
               <Route path="/login"  component={Login}></Route>
+              <Route path="/toplist/:id?" component={TopList}></Route>
           </div>
           {playingId!==0?<PlaySmall bigplayshowfn={bigplayshowfn}  arr={playArr[0]} progress={progress} songMes={songMes} isplaying={isPlaying} setPlayOrPause={setPlayOrPause}/>:null}
           {bigPlayShow?<PlayBig bigplayshowfn={bigplayshowfn} isplaying={isPlaying} getCurrentTime={getCurrentTime} progress={progress} songMes={songMes} setPlayOrPause={setPlayOrPause} lrcArr={lrcArr} setSeekTo={setSeekTo}/>:null}
