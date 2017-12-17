@@ -71,7 +71,7 @@ export function searchSong(payload){
 // "22": 云音乐ACG音乐榜,
 // "23": 云音乐嘻哈榜
 export function listTop (payload){
-    return fetch("http://localhost:3000/top/list?idx="+payload.idx+"&count="+payload.count).then(res=>{
+    return fetch("http://localhost:3000/top/list?idx="+payload.idx+"").then(res=>{
         return res.json()
     })
 }
