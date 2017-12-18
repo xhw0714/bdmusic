@@ -312,3 +312,45 @@ export function lyric (payload){
 
 
 
+### 歌词的处理(根据自己的理解写，大神别喷)
+
+```javascript
+ lyric({id}).then(lryic=>{ //获取歌词
+   this.setState({
+     nowPlayLink:url.data[0].url, //"http://localhost/1.mp3"
+     isPlaying:true,
+     playingId:id,
+     songMes:detail.songs[0]
+   },()=>{
+     getprogress();
+     if(lryic.lrc){
+       this.setState({
+         lrcArr:lryic.lrc.lyric.split("\n") //歌词分割成数组
+       })
+     }
+   })
+ })
+```
+
+```javascript
+if(lrcArr.length>0){
+            //根据时间拆分歌词
+            let newTime = 0;
+            let lrcshow = lrcArr.map((e,i)=>{
+                let newe = e.replace(/\[[^\]]+\]/g,function($0){
+                    newTime = Number($0.replace(/\[|\]/g,'').slice(0,2))*60 + Number($0.replace(/\[|\]/g,'').slice(3,5));
+                    return '';
+                })
+                if(newe.trim() === '')return '';
+                return {name:newe,time:isNaN(newTime)?0:newTime}
+            }).filter(e=>e!=='');
+            var item = lrcshow.map((e,i)=>{
+                if(lrcshow[i+1]){
+                    return <li key={i} className={getCurrentTime>=e.time&&getCurrentTime<lrcshow[i+1].time?"on":''} data-time={e.time}>{e.name}</li>
+                }else{
+                    return <li key={i} className={getCurrentTime>=e.time?"on":''} data-time={e.time}>{e.name}</li>
+                }
+            })
+        }
+```
+

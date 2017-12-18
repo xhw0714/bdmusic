@@ -32,7 +32,6 @@ export default class listcate extends Component{
     }
     
     componentWillMount(){
-        console.log(1)
         this.getSongList(0,0);
         this.getSongList(1,1);
         this.getSongList(2,2);

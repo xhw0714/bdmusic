@@ -60,12 +60,11 @@ export default class songlists extends Component{
                 offset:this.state.offset*6
             })
             .then(data=>{
-                console.log(data)
                 if(data.result){
                     this.setState({
                         lists:[...this.state.lists,...data.result.songs],
                     },()=>{
-                        console.log(this)
+
                         this.state.lists.forEach((e,i) => {
                             songDetail({
                                 id:e.id
