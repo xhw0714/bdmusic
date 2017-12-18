@@ -15,7 +15,6 @@ class SongItem extends React.Component{
             author += e.name;
         });
         let {dispatch} = this.props;
-        console.log(this.props)
         return (
             <li className="song-top-item" onClick={()=>{
                 dispatch(playMusic(id))
