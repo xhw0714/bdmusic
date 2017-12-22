@@ -46,7 +46,7 @@ src //开发文件
 		--artists //歌手页面
 		--index //首页
 		--listcate //排行版页面
-        --singer //歌手详情页面
+		--singer //歌手详情页面
 		--songlists //分类页面
 		--ucenter //用户页面
 		--toplist //榜单详情页

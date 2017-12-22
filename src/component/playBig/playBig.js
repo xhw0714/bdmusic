@@ -93,7 +93,6 @@ export default class playBig extends Component{
                         <span className="singer">{songMes.ar?songMes.ar[0].name:''}</span>
                         <div className="song-div" ref="songDiv">
                         <ul className="song-text"  ref="songTextBox">
-                          
                             {lrcArr.length>0?item:"没有歌词"}
                         </ul>
                         </div>
@@ -126,8 +125,10 @@ export default class playBig extends Component{
                         setPlayOrPause()
                     }}></span>
                     <span className="next fl" onClick={e=>
-                        {e.stopPropagation();
-                        playEndorNext(e)}
+                        {
+                            e.stopPropagation();
+                            playEndorNext(e)
+                    }
                     }></span>
                     <span className="list fl"></span>
                 </div>
